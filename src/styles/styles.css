@@ -53,7 +53,12 @@ h1 {
   border: 2px solid var(--text-color);
   font-family: Quicksand;
   border-radius: 15px;
-  padding: .3em .8em;
+  padding: .3em .6em;
+  outline: none;
+  appearance: none;
+}
+.input::-webkit-search-decoration {
+  -webkit-appearance: none;
 }
 .checkbox {
   appearance: none;
