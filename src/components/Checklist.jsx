@@ -94,11 +94,13 @@ function Checklist() {
             <label className={ styles.checklistLabel }>
               <input
                 type="checkbox"
-                className="checkbox"
+                className={ `checkbox ${ styles.checklistCheckbox }` }
                 checked={ completedTasks.includes(index) }
                 onChange={ () => updateTask(index) }
               />
-              { task.objective }
+              <span className={ styles.checklistText }>
+                { task.objective }
+              </span>
             </label>
           </p>
         ))

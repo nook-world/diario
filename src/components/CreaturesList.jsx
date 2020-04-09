@@ -10,7 +10,7 @@ import CreaturesSwitch from './CreaturesSwitch';
 import styles from '../styles/components/CreaturesList.module.css';
 
 function CreaturesList({ type, setType }) {
-  const [ keyword, setKeyword ] = useState(' ');
+  const [ keyword, setKeyword ] = useState('');
   const [ selectedCreatures, setSelectedCreatures ] = useState({
     bugs: [],
     fishes: []
@@ -44,19 +44,26 @@ function CreaturesList({ type, setType }) {
           />
         </div>
       </div>
-      <p>
+      <div className={ styles.creaturesListSearch }>
         <label>
           Filter by name:
-          <br />
-          <input
-            className="input"
-            type="search"
-            placeholder="Type your search here…"
-            value={ keyword }
-            onChange={ (e) => setKeyword(e.currentTarget.value) }
-          />
+          <span className={ styles.creaturesListForm }>
+            <input
+              className={ `input ${ styles.creaturesListInput }`}
+              type="search"
+              placeholder="Type your search here…"
+              value={ keyword }
+              onChange={ (e) => setKeyword(e.currentTarget.value) }
+            />
+            <button
+              className="button"
+              onClick={ () => setKeyword('') }
+            >
+              Clear
+            </button>
+          </span>          
         </label>
-      </p>
+      </div>
       {
         creatures[type]
           .filter(creature => creature.name.toLowerCase().includes(keyword.toLowerCase().trim()))

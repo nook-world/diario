@@ -26,7 +26,6 @@
        url('/fonts/quicksand-v20-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
        url('/fonts/quicksand-v20-latin-700.svg#Quicksand') format('svg'); /* Legacy iOS */
 }
-
 :root {
   --text-color: #40332D;
 }
@@ -35,21 +34,43 @@ body {
   margin: 0;
   font-family: 'Quicksand';
   color: var(--text-color);
+  border-radius: 10px;
 }
-
 h1 {
   text-align: center;
 }
-
+.ios-peek {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  background: url('/assets/nook.jpg'), linear-gradient(#B3E8CC 30%, #D0D856 60%);
+  background-size: contain;
+  background-position: top;
+  background-repeat: no-repeat;
+  /* background: top center no-repeat url('/assets/nook.jpg'); */
+}
 .layout {
+  padding-top: calc(env(safe-area-inset-top) - 1.3em);
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  border-radius: 10px;
+}
+.button {
+  background: #7B8FCE;
+  font-family: Quicksand;
+  border-radius: 15px;
+  height: 3em;
+  border: 2px solid #7B8FCE;
+  font-size: 1em;
+  color: var(--text-color);
 }
 .input {
   font-size: 1em;
-  height: 2.5em;
+  height: 3em;
   border: 2px solid var(--text-color);
   font-family: Quicksand;
   border-radius: 15px;
@@ -74,6 +95,7 @@ h1 {
   transition: background-color .2s ease-in-out;
   cursor: pointer;
   outline: none;
+  border: 0;
 }
 .checkbox:checked {
   /* background: #6B9F62; */

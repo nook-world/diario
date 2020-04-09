@@ -4,10 +4,15 @@
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+  padding-bottom: calc(env(safe-area-inset-bottom) - 1.2em);
   margin-top: 2em;
   background: #D0D856;
-  box-shadow: 0 0 0 3px #FFF;
+  box-shadow: 0 0 0 2px #FFF,
+              0 2px 0 #D0D856;
+  border-bottom: 0;
   border-radius: 20px 20px 0 0;
+  box-sizing: border-box;
+  z-index: 100;
 }
 .menuItem {
   display: flex;
