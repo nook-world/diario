@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import bugs from '../database/bugs.json';
 import fishes from '../database/fishes.json';
@@ -17,6 +17,19 @@ function CreaturesList({ type }) {
   });
   const creatures = { bugs, fishes };
 
+  useEffect(() => {
+    let storage = [];
+    try {
+      storage = localStorage.getItem(type);
+      storage = JSON.parse(storage) || [];
+    } catch (error) {
+      console.log('🤷‍♂️');
+    }
+    const state = { ...selectedCreatures };
+    state[type] = storage;
+    setSelectedCreatures(state);
+  }, []);
+
   function selectCreature(id) {
     let state = { ...selectedCreatures };
 
@@ -25,6 +38,8 @@ function CreaturesList({ type }) {
     } else {
       state[type].push(id);
     }
+
+    localStorage.setItem(type, JSON.stringify(state[type]));
 
     setSelectedCreatures(state);
   };

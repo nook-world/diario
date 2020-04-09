@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import CurrentDate from './CurrentDate';
 import Percentage from './Percentage';
@@ -6,6 +6,7 @@ import Percentage from './Percentage';
 import styles from '../styles/components/Checklist.module.css';
 
 function Checklist() {
+  const storageName = 'tasks';
   const tasks = [
     {
       objective: 'Check your mail'
@@ -67,6 +68,18 @@ function Checklist() {
   ];
   const [completedTasks, setCompletedTasks] = useState([]);
 
+  useEffect(() => {
+    let storage = [];
+    try {
+      storage = localStorage.getItem(storageName);
+      storage = JSON.parse(storage) || [];
+    } catch (error) {
+      console.log('🤷‍♂️');
+    }
+
+    setCompletedTasks(storage);
+  }, []);
+
   function updateTask(task) {
     let state = [...completedTasks];
 
@@ -75,7 +88,7 @@ function Checklist() {
     } else {
       state.push(task);
     }
-
+    localStorage.setItem(storageName, JSON.stringify(state))
     setCompletedTasks(state);
   }
 
