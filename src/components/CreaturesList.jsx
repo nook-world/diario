@@ -23,7 +23,7 @@ function CreaturesList({ type }) {
       storage = localStorage.getItem(type);
       storage = JSON.parse(storage) || [];
     } catch (error) {
-      console.log('🤷‍♂️');
+      storage = [];
     }
     const state = { ...selectedCreatures };
     state[type] = storage;

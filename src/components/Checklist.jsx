@@ -74,7 +74,7 @@ function Checklist() {
       storage = localStorage.getItem(storageName);
       storage = JSON.parse(storage) || [];
     } catch (error) {
-      console.log('🤷‍♂️');
+      storage = []
     }
 
     setCompletedTasks(storage);
