@@ -7,8 +7,7 @@
   padding-bottom: calc(env(safe-area-inset-bottom) - 1.2em);
   margin-top: 2em;
   background: #D0D856;
-  box-shadow: 
-              0 2px 0 #D0D856,
+  box-shadow: 0 2px 0 #D0D856,
               0 -1px 0 2px #FFF;
   border-bottom: 0;
   border-radius: 20px 20px 0 0;
