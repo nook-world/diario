@@ -17,8 +17,8 @@ function Layout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-        <meta charset='utf-8' />
-        <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+        <meta charSet='utf-8' />
+        <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="msapplication-TileColor" content="#5bbad5" />

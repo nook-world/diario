@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 import Bugs from './icons/Bugs';
 import Fishes from './icons/Fishes';
@@ -9,29 +10,27 @@ function CreaturesSwitch({ active, setType }) {
   const bugClasses = [ styles.creaturesSwitchButton ];
   const fishClasses = [ styles.creaturesSwitchButton ];
 
-  if (active === 'bugs') {
-    bugClasses.push(styles.creaturesSwitchButtonActive)
-  } else {
-    fishClasses.push(styles.creaturesSwitchButtonActive)
-  }
-
+  if (active === 'bugs') bugClasses.push(styles.creaturesSwitchButtonActive);
+  if (active === 'fishes') fishClasses.push(styles.creaturesSwitchButtonActive);
 
   return (
     <div className={ styles.creaturesSwitch }>
-      <button
-        className={ bugClasses.join(' ') }
-        onClick={ () => setType('bugs') }
-      >
-        <Bugs />
-        Bugs
-      </button>
-      <button
-        className={ fishClasses.join(' ') }
-        onClick={ () => setType('fishes') }
-      >
-        <Fishes />
-        Fishes
-      </button>
+      <Link href="/creatures/bugs">
+        <a
+          className={ bugClasses.join(' ') }
+        >
+          <Bugs />
+          Bugs
+        </a>
+      </Link>
+      <Link href="/creatures/fishes">
+        <a
+          className={ fishClasses.join(' ') }
+        >
+          <Fishes />
+          Fishes
+        </a>
+      </Link>
     </div>
   );
 }

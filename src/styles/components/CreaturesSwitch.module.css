@@ -11,15 +11,13 @@
   justify-content: center;
   width: 5em;
   height: 5em;
-  border: 0;
-  background: #FFF;
   border-radius: 50%;
   color: #FACB61;
   font-size: .8em;
   font-family: Quicksand;
   margin: .1em;
-  cursor: pointer;
   vertical-align: middle;
+  text-decoration: none;
 }
 .creaturesSwitchButtonActive {
   background: #FACB61;

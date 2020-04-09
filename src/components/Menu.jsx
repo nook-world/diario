@@ -16,7 +16,7 @@ function Menu({ selected }) {
     {
       label: 'Creatures',
       Icon: Creatures,
-      path: '/creatures'
+      path: '/creatures/bugs'
     }
   ];
 

@@ -9,7 +9,7 @@ import CreaturesSwitch from './CreaturesSwitch';
 
 import styles from '../styles/components/CreaturesList.module.css';
 
-function CreaturesList({ type, setType }) {
+function CreaturesList({ type }) {
   const [ keyword, setKeyword ] = useState('');
   const [ selectedCreatures, setSelectedCreatures ] = useState({
     bugs: [],
@@ -34,7 +34,6 @@ function CreaturesList({ type, setType }) {
       <div className={ styles.creaturesListHeader }>
         <CreaturesSwitch
           active={ type }
-          setType={ setType }
         />
         <div className={ styles.creaturesListHeaderInfo }>
           <CurrentDate />
@@ -85,9 +84,11 @@ function CreaturesList({ type, setType }) {
                   />
                   <img
                     className={ styles.creaturesListImage }
-                    src={ `/${ type }/${ creature.id }.png` }
-                    // alt={ creature.name }
+                    src={ `/${ type }/compressed/${ creature.id }.png` }
+                    alt={ creature.name }
                     loading="lazy"
+                    width="64"
+                    height="64"
                   />
                 </label>
                 { creature?.name }
