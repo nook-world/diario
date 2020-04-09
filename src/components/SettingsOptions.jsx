@@ -14,9 +14,9 @@ function SettingsOptions() {
 
   useEffect(() => {
     const storage = {
-      tasks: JSON.parse(localStorage.getItem('tasks')),
-      bugs: JSON.parse(localStorage.getItem('bugs')),
-      fishes: JSON.parse(localStorage.getItem('fishes'))
+      tasks: localStorage.getItem('tasks'),
+      bugs: localStorage.getItem('bugs'),
+      fishes: localStorage.getItem('fishes')
     };
 
     setData("data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(storage)));
@@ -47,34 +47,43 @@ function SettingsOptions() {
     <nav className={ styles.settingsOptions }>
       <h2>Backup data</h2>
       <p>
-        <a href={ data } className="button" download="my-miles-backup.json">
-          Export
-        </a>
-        <br />
         Get my tasks and milestones to use in other place.
       </p>
       <p>
-        <input
-          type="file"
-          ref={ inputFile }
-          accept="application/JSON"
-        />
+        <a href={ data } className="button" download="my-miles-backup.json">
+          Export
+        </a>
+      </p>
+      <p>
+        Get the data you already exported.
+        <br />
+        <div class="fileArea">
+          <input
+            type="file"
+            ref={ inputFile }
+            accept="application/JSON"
+            required="true"
+          />
+          <div class="fileDummy">
+            <div class="fileSuccess">File selected, now you can import your data</div>
+            <div class="fileDefault">Click to select a file to import</div>
+          </div>
+        </div>
+      </p>
+      <p>
         <button
           className="button"
           onClick={ readJson }
         >
           Import
         </button>
-        {
-          status &&
-          <>
-            <br />
-            <span className={ styles.settingsOptionsFeedback }>{ status }</span>
-          </>
-        }
-        <br />
-        Get the data you already exported.
       </p>
+      {
+        status &&
+        <p>
+          <span className={ styles.settingsOptionsFeedback }>{ status }</span>
+        </p>
+      }
       <img src="/assets/rule-confetti-brown.svg" alt="Rule Confetti Brow"/>
       <h2>Remove content (DAAANGER)</h2>
       <p>
