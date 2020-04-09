@@ -58,6 +58,13 @@ h1 {
   min-height: 100vh;
   border-radius: 10px;
 }
+a.button {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 .4em;
+  height: 2.75em;
+}
 .button {
   background: #7B8FCE;
   font-family: Quicksand;
@@ -65,7 +72,12 @@ h1 {
   height: 3em;
   border: 2px solid #7B8FCE;
   font-size: 1em;
-  color: var(--text-color);
+  color: #FFF;
+  cursor: pointer;
+}
+.buttonDanger {
+  background: tomato;
+  border-color: tomato;
 }
 .input {
   font-size: 1em;
@@ -99,4 +111,8 @@ h1 {
 .checkbox:checked {
   /* background: #6B9F62; */
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23FFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center no-repeat, #6B9F62;
+}
+
+.textCenter {
+  text-align: center;
 }

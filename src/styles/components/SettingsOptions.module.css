@@ -1,0 +1,13 @@
+.settingsOptions {
+  width: calc(100% - 3em);
+  max-width: 600px;
+  margin-bottom: auto;
+  text-align: center;
+}
+.settingsOptionsFeedback {
+  display: inline-block;
+  padding: 1em;
+  margin-bottom: 1em;
+  background: #fff;
+  border-radius: 30px;
+}

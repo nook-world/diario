@@ -118,6 +118,20 @@ function Checklist() {
           </p>
         ))
       }
+      {
+        !!completedTasks.length &&
+        <p className="textCenter">
+          <button
+            className="button buttonDanger"
+            onClick={ () => {
+              localStorage.removeItem('tasks');
+              setCompletedTasks([]);
+            } }
+          >
+            Reset my tasks
+          </button>
+        </p>
+      }
     </div>
   );
 }

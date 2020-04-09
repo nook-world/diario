@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import Daily from './icons/Daily';
 import Creatures from './icons/Creatures';
+import Case from './icons/Case';
 
 import styles from '../styles/components/Menu.module.css';
 
@@ -17,6 +18,11 @@ function Menu({ selected }) {
       label: 'Creatures',
       Icon: Creatures,
       path: '/creatures/bugs'
+    },
+    {
+      label: 'Settings',
+      Icon: Case,
+      path: '/settings'
     }
   ];
 
