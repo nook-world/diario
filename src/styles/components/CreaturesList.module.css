@@ -1,0 +1,65 @@
+.creaturesList {
+  text-align: center;
+  margin-bottom: auto;
+  width: 100%;
+}
+.creaturesListHeader {
+  display: flex;
+  justify-content: space-between;
+  max-width: 500px;
+  margin: auto;
+  padding: 0 2em;
+}
+.creaturesListHeaderInfo {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  text-align: right;
+}
+.creaturesListItem {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+  margin: 1em;
+}
+.creaturesListLabel {
+  position: relative;
+  background: rgba(255, 255, 255, .1);
+  border-radius: 50%;
+  padding: 1em;
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+}
+.creaturesListLabel:hover {
+  background: rgba(255, 255, 255, .4);
+}
+.creaturesListLabelActive {
+  background: rgba(250, 203, 97, .6);
+  box-shadow: inset 0 0 0 5px #FACB61;
+}
+.creaturesListLabelActive:hover {
+  background: rgba(250, 203, 97, .8);
+}
+.creaturesListCheckbox {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  border-radius: 50%;
+  transform: scale(60%);
+  box-shadow: 0 0 0 5px #6b9f62;
+  transition: all .2s ease-in-out;
+}
+.creaturesListCheckbox:checked {
+  opacity: 1;
+}
+.creaturesListImage {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  vertical-align: middle;
+}

@@ -1,0 +1,6 @@
+.percentage {
+  padding: .5em 1em;
+  border-radius: 50px;
+  transition: all .2s ease-in-out;
+  white-space: nowrap;
+}

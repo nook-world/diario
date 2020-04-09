@@ -1,0 +1,76 @@
+/* quicksand-600 - latin */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/quicksand-v20-latin-600.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/fonts/quicksand-v20-latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/quicksand-v20-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/quicksand-v20-latin-600.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/quicksand-v20-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/quicksand-v20-latin-600.svg#Quicksand') format('svg'); /* Legacy iOS */
+}
+/* quicksand-700 - latin */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: bold;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/quicksand-v20-latin-700.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/fonts/quicksand-v20-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/quicksand-v20-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/quicksand-v20-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/quicksand-v20-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/quicksand-v20-latin-700.svg#Quicksand') format('svg'); /* Legacy iOS */
+}
+
+:root {
+  --text-color: #40332D;
+}
+
+body {
+  margin: 0;
+  font-family: 'Quicksand';
+  color: var(--text-color);
+}
+
+h1 {
+  text-align: center;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+.input {
+  font-size: 1em;
+  height: 2.5em;
+  border: 2px solid var(--text-color);
+  font-family: Quicksand;
+  border-radius: 15px;
+  padding: .3em .8em;
+}
+.checkbox {
+  appearance: none;
+  display: inline-block;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  background: #FFF;
+  border-radius: 8px;
+  vertical-align: middle;
+  margin: 0;
+  margin-right: 1em;
+  transition: background-color .2s ease-in-out;
+  cursor: pointer;
+  outline: none;
+}
+.checkbox:checked {
+  /* background: #6B9F62; */
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23FFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center no-repeat, #6B9F62;
+}

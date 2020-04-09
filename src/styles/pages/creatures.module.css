@@ -1,0 +1,9 @@
+.bugsBackground {
+  background: url('/assets/confetti.jpg');
+  background-size: 500px;
+
+}
+.fishesBackground {
+  background: url('/assets/waves.jpg');
+  background-size: 200px;
+}

@@ -1,0 +1,95 @@
+import React, { useState } from 'react';
+
+import bugs from '../database/bugs.json';
+import fishes from '../database/fishes.json';
+
+import CurrentDate from './CurrentDate';
+import Percentage from './Percentage';
+import CreaturesSwitch from './CreaturesSwitch';
+
+import styles from '../styles/components/CreaturesList.module.css';
+
+function CreaturesList({ type, setType }) {
+  const [ keyword, setKeyword ] = useState(' ');
+  const [ selectedCreatures, setSelectedCreatures ] = useState({
+    bugs: [],
+    fishes: []
+  });
+  const creatures = { bugs, fishes };
+
+  function selectCreature(id) {
+    let state = { ...selectedCreatures };
+
+    if (state[type].includes(id)) {
+      state[type] = state[type].filter(item => item !== id);
+    } else {
+      state[type].push(id);
+    }
+
+    setSelectedCreatures(state);
+  };
+
+  return (
+    <div className={ styles.creaturesList }>
+      <div className={ styles.creaturesListHeader }>
+        <CreaturesSwitch
+          active={ type }
+          setType={ setType }
+        />
+        <div className={ styles.creaturesListHeaderInfo }>
+          <CurrentDate />
+          <Percentage
+            current={ selectedCreatures[type].length }
+            total={ creatures[type].length }
+          />
+        </div>
+      </div>
+      <p>
+        <label>
+          Filter by name:
+          <br />
+          <input
+            className="input"
+            type="search"
+            placeholder="Type your search here…"
+            value={ keyword }
+            onChange={ (e) => setKeyword(e.currentTarget.value) }
+          />
+        </label>
+      </p>
+      {
+        creatures[type]
+          .filter(creature => creature.name.toLowerCase().includes(keyword.toLowerCase().trim()))
+          .map((creature) => {
+            const isSelected = selectedCreatures[type].includes(creature.id);
+            const labelClasses = [ styles.creaturesListLabel ];
+            if (isSelected) labelClasses.push(styles.creaturesListLabelActive);
+            return (
+              <div
+                key={ `${ type }-${ creature.id }` }
+                className={ styles.creaturesListItem }
+              >
+                <label className={ labelClasses.join(' ') }>
+                  <input
+                    type="checkbox"
+                    className={ [ styles.creaturesListCheckbox, 'checkbox' ].join(' ') }
+                    checked={ isSelected }
+                    onChange={ () => selectCreature(creature.id) }
+                  />
+                  <img
+                    className={ styles.creaturesListImage }
+                    src={ `/${ type }/${ creature.id }.png` }
+                    // alt={ creature.name }
+                    loading="lazy"
+                  />
+                </label>
+                { creature?.name }
+              </div>
+            );
+          })
+      }
+    </div>
+  );
+};
+
+export default CreaturesList;
