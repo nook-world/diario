@@ -11,22 +11,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Node
+      - name: ⌨️ Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-
-      - name: Get npm cache
-        id: npm-cache
-        run: echo "::set-output name=dir::$(npm cache dir)"
-
-      - name: Cache dependencies
-        uses: actions/cache@v1
-        with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-npm-
 
       - name: 📦 Install Dependencies
         run: npm run install
@@ -34,7 +22,7 @@ jobs:
       - name: 🏗  Build Application
         run: npm run build
 
-      - name: Export Next Static Site
+      - name: 🧳 Export Next Static Site
         run: npm run export
 
       - name: 🚀 Deploy
