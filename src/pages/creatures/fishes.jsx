@@ -11,7 +11,7 @@ function Page() {
   const { language } = useAppContext();
   return (
     <Layout
-      background={ styles.bugsBackground }
+      background={ styles.fishesBackground }
     >
       <h1>{ language.creatures } ({ language.fishes })</h1>
       <CreaturesList language={ language } type="fishes" />
