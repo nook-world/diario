@@ -5,13 +5,16 @@ import SettingsOptions from '../components/SettingsOptions';
 
 import styles from '../styles/pages/settings.module.css';
 
-function Page({ language }) {
+function Page({ language, setSelectedLanguage }) {
   return (
     <Layout
       background={ styles.layout }
     >
       <h1>{ language.settings }</h1>
-      <SettingsOptions language={ language } />
+      <SettingsOptions
+        language={ language }
+        setSelectedLanguage={ setSelectedLanguage }
+      />
     </Layout>
   )
 }

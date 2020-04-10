@@ -114,6 +114,7 @@ a.button {
 }
 /* Input file */
 .fileArea {
+  display: block;
   width: 100%;
   position: relative;
   margin: 1em 0;
@@ -130,6 +131,7 @@ a.button {
   cursor: pointer;
 }
 .fileArea .fileDummy {
+  display: block;
   width: 100%;
   padding: 30px;
   background: #FACB61 url('/assets/pattern-grid-2x.png');

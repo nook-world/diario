@@ -1,4 +1,5 @@
 {
+  "selectedLanguage": "pt",
   "of": "de",
   "daily": "Diário",
   "creatures": "Criaturas",
@@ -54,6 +55,7 @@
   "fishesReseted": "Peixes reiniciados",
   "uncheckBugs": "Desmarcar insetos",
   "uncheckFishes": "Desmarcar peixes",
-  "cleanAll": "Limpar todos"
-
+  "cleanAll": "Limpar todos",
+  "language": "Idioma",
+  "chooseTheDesiredLanguage": "Escolha o idioma em que deseja"
 }

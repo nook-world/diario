@@ -47,6 +47,7 @@ function CustomApp({ Component, pageProps }) {
       <Component
         { ...pageProps }
         language={ language }
+        setSelectedLanguage={ setSelectedLanguage }
       />
     </ContextProvider>
   );

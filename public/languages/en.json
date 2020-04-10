@@ -1,4 +1,5 @@
 {
+  "selectedLanguage": "en",
   "of": "of",
   "daily": "Daily",
   "creatures": "Creatures",
@@ -39,9 +40,9 @@
   "sat": "Sat",
   "backupData": "Backup data",
   "getMyTasksAndMilestonesToUseInOtherPlace": "Get my tasks and milestones to use in other place",
-  "export": "Exportar",
+  "export": "Export",
   "getTheDataYouAlreadyExported": "Get the data you already exported",
-  "import": "Importar",
+  "import": "Import",
   "addAFileToImport": "Add a file to import",
   "yourBackupIsBack": "Your backup is back",
   "errorParsingFile": "Error parsing file",
@@ -52,5 +53,7 @@
   "tasksReseted": "Tasks reseted",
   "bugsReseted": "Bugs reseted",
   "uncheckBugs": "Uncheck Bugs",
-  "cleanAll": "Clean All"
+  "cleanAll": "Clean All",
+  "language": "Language",
+  "chooseTheDesiredLanguage": "Choose the desired language"
 }
