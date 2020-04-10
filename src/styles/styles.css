@@ -36,6 +36,9 @@ body {
   color: var(--text-color);
   border-radius: 10px;
 }
+a {
+  outline: none;
+}
 h1 {
   text-align: center;
 }
