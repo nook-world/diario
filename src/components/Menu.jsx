@@ -17,24 +17,24 @@ function Menu({ selected }) {
   const [, menuActivated] = route.pathname.split("/");
 
   const enumMenu = {
-    Daily: '',
-    Creatures: 'creatures',
-    Settings: 'settings'
+    daily: '',
+    creatures: 'creatures',
+    settings: 'settings'
   }
 
   const items = [
     {
-      label: language.daily,
+      label: 'daily',
       Icon: Daily,
       path: '/'
     },
     {
-      label: language.creatures,
+      label: 'creatures',
       Icon: Creatures,
       path: '/creatures/bugs'
     },
     {
-      label: language.settings,
+      label: 'settings',
       Icon: Case,
       path: '/settings'
     }
@@ -59,7 +59,7 @@ function Menu({ selected }) {
               >
                 <item.Icon className={styles.menuIcon} />
                 <span className={styles.menuLabel}>
-                  {item.label}
+                  {language[item.label]}
                 </span>
               </a>
             </Link>
