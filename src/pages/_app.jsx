@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { ContextProvider } from '../hooks/appContext';
 import PageLoading from '../components/PageLoading';
+import Menu from '../components/Menu';
 
 import '../styles/styles.css';
 
@@ -50,6 +51,9 @@ function CustomApp({ Component, pageProps }) {
         { ...pageProps }
         language={ language }
         setSelectedLanguage={ setSelectedLanguage }
+      />
+      <Menu
+        language={ language }
       />
     </ContextProvider>
   );

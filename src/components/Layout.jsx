@@ -29,7 +29,6 @@ function Layout({
         <meta name="theme-color" content="#5bbad5" />
       </Head>
       { children }
-      <Menu />
       <div className="ios-peek" />
     </div>
   );

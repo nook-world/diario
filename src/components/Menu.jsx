@@ -6,60 +6,54 @@ import Daily from './icons/Daily';
 import Creatures from './icons/Creatures';
 import Case from './icons/Case';
 
-import { useAppContext } from '../hooks/appContext';
-
 import styles from '../styles/components/Menu.module.css';
 
-function Menu({ selected }) {
-  const { language } = useAppContext();
+function Menu({ language }) {
   const route = useRouter();
 
   const [, menuActivated] = route.pathname.split("/");
 
-  const enumMenu = {
-    daily: '',
-    creatures: 'creatures',
-    settings: 'settings'
-  }
-
-  const items = [
+  const menuItems = [
     {
       label: 'daily',
       Icon: Daily,
-      path: '/'
+      path: '/',
+      rootPath: ''
     },
     {
       label: 'creatures',
       Icon: Creatures,
-      path: '/creatures/bugs'
+      path: '/creatures/bugs',
+      rootPath: 'creatures'
     },
     {
       label: 'settings',
       Icon: Case,
-      path: '/settings'
+      path: '/settings',
+      rootPath: 'settings'
     }
   ];
 
   return (
     <nav className={styles.menu}>
       {
-        items.map((item, index) => {
+        menuItems.map((menuItem, index) => {
           const linkClasses = [styles.menuItem];
-          if (menuActivated === enumMenu[item.label]) {
+          if (menuActivated === menuItem.rootPath) {
             linkClasses.push(styles.menuActive);
           }
 
           return (
             <Link
               key={`menu-${index}`}
-              href={item.path}
+              href={menuItem.path}
             >
               <a
                 className={linkClasses.join(' ')}
               >
-                <item.Icon className={styles.menuIcon} />
+                <menuItem.Icon className={styles.menuIcon} />
                 <span className={styles.menuLabel}>
-                  {language[item.label]}
+                  {language[menuItem.label]}
                 </span>
               </a>
             </Link>
