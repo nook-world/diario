@@ -6,7 +6,7 @@ import Fishes from './icons/Fishes';
 
 import styles from '../styles/components/CreaturesSwitch.module.css';
 
-function CreaturesSwitch({ active, setType }) {
+function CreaturesSwitch({ language, active }) {
   const bugClasses = [ styles.creaturesSwitchButton ];
   const fishClasses = [ styles.creaturesSwitchButton ];
 
@@ -20,7 +20,7 @@ function CreaturesSwitch({ active, setType }) {
           className={ bugClasses.join(' ') }
         >
           <Bugs />
-          Bugs
+          { language.bugs }
         </a>
       </Link>
       <Link href="/creatures/fishes">
@@ -28,7 +28,7 @@ function CreaturesSwitch({ active, setType }) {
           className={ fishClasses.join(' ') }
         >
           <Fishes />
-          Fishes
+          { language.fishes }
         </a>
       </Link>
     </div>

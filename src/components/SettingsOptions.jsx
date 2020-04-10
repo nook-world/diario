@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import styles from '../styles/components/SettingsOptions.module.css';
 
-function SettingsOptions() {
+function SettingsOptions({ language }) {
   const [status, setStatus] = useState('');
   const [data, setData] = useState({});
   const [reseted, setReseted] = useState({
@@ -25,37 +25,36 @@ function SettingsOptions() {
   function readJson() {
     const file = inputFile.current.files[0];
 
-    if (!file) return setStatus('Add a file to import.');
+    if (!file) return setStatus(language.addAFileToImport);
 
     const reader = new FileReader();
     reader.readAsText(file, 'UTF-8');
     reader.onload = (event) => {
       try {
         const backup = JSON.parse(event.target.result);
-        console.log(backup);
         if (backup.tasks) localStorage.setItem('tasks', backup.tasks);
         if (backup.bugs) localStorage.setItem('bugs', backup.bugs);
         if (backup.fishes) localStorage.setItem('fishes', backup.fishes);
-        setStatus('Your backup is back!');
+        setStatus(language.yourBackupIsBack);
       } catch (error) {
-        setStatus('Error parsing file.');
+        setStatus(language.errorParsingFile);
       }
     }
   }
 
   return (
     <nav className={ styles.settingsOptions }>
-      <h2>Backup data</h2>
+      <h2>{ language.backupData }</h2>
       <p>
-        Get my tasks and milestones to use in other place.
+        { language.getMyTasksAndMilestonesToUseInOtherPlace }
       </p>
       <p>
         <a href={ data } className="button" download="my-miles-backup.json">
-          Export
+          { language.export }
         </a>
       </p>
       <p>
-        Get the data you already exported.
+        { language.getTheDataYouAlreadyExported }
         <br />
         <div class="fileArea">
           <input
@@ -65,8 +64,8 @@ function SettingsOptions() {
             required="true"
           />
           <div class="fileDummy">
-            <div class="fileSuccess">File selected, now you can import your data</div>
-            <div class="fileDefault">Click to select a file to import</div>
+            <div class="fileSuccess">{ language.fileSelectedNowYouCanImportYourData }</div>
+            <div class="fileDefault">{ language.clickToSelectAFileToImport }</div>
           </div>
         </div>
       </p>
@@ -75,7 +74,7 @@ function SettingsOptions() {
           className="button"
           onClick={ readJson }
         >
-          Import
+          { language.import }
         </button>
       </p>
       {
@@ -85,11 +84,13 @@ function SettingsOptions() {
         </p>
       }
       <img src="/assets/rule-confetti-brown.svg" alt="Rule Confetti Brow"/>
-      <h2>Remove content (DAAANGER)</h2>
+      <h2>{ language.removeContent } ({ language.daaanger })</h2>
       <p>
         {
           reseted.tasks &&
-          <>Tasks reseted</>
+          <>
+            { language.tasksReseted }
+          </>
         }
         {
           !reseted.tasks &&
@@ -100,14 +101,14 @@ function SettingsOptions() {
               localStorage.removeItem('tasks');
             } }
           >
-            Undo Tasks
+            { language.resetMyTasks }
           </button>
         }
       </p>
       <p>
         {
           reseted.bugs &&
-          <>Bugs reseted</>
+          <>{ language.bugsReseted }</>
         }
         {
           !reseted.bugs &&
@@ -118,14 +119,14 @@ function SettingsOptions() {
               localStorage.removeItem('bugs');
             } }
           >
-            Uncheck Bugs
+            { language.uncheckBugs }
           </button>
         }
       </p>
       <p>
         {
           reseted.fishes &&
-          <>Fishes reseted</>
+          <>{ language.fishesReseted }</>
         }
         {
           !reseted.fishes &&
@@ -136,7 +137,7 @@ function SettingsOptions() {
               localStorage.removeItem('fishes');
             } }
           >
-            Uncheck Fishes
+            { language.uncheckFishes }
           </button>
         }
       </p>
@@ -148,7 +149,7 @@ function SettingsOptions() {
             localStorage.clear();
           } }
         >
-          Clean All
+          { language.cleanAll }
         </button>
       </p>
     </nav>

@@ -5,13 +5,13 @@ import Checklist from '../components/Checklist';
 
 import styles from '../styles/pages/index.module.css';
 
-function Page() {
+function Page({ language }) {
   return (
     <Layout
       background={ styles.layout }
     >
-      <h1>Daily</h1>
-      <Checklist />
+      <h1>{ language.daily }</h1>
+      <Checklist language={ language } />
     </Layout>
   );
 }
