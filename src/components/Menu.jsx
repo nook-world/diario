@@ -11,7 +11,7 @@ import styles from '../styles/components/Menu.module.css';
 function Menu({ selected }) {
   const route = useRouter();
 
-  const [, menuItem] = route.pathname.split("/");
+  const [, menuActivated] = route.pathname.split("/");
 
   const enumMenu = {
     Daily: '',
@@ -40,21 +40,28 @@ function Menu({ selected }) {
   return (
     <nav className={styles.menu}>
       {
-        items.map((item, index) => (
-          <Link
-            key={`menu-${index}`}
-            href={item.path}
-          >
-            <a
-              className={`${styles.menuItem} ${menuItem === enumMenu[item.label] && styles.menuActive}`}
+        items.map((item, index) => {
+          const linkClasses = [styles.menuItem];
+          if (menuActivated === enumMenu[item.label]) {
+            linkClasses.push(styles.menuActive);
+          }
+
+          return (
+            <Link
+              key={`menu-${index}`}
+              href={item.path}
             >
-              <item.Icon className={styles.menuIcon} />
-              <span className={styles.menuLabel}>
-                {item.label}
-              </span>
-            </a>
-          </Link>
-        ))
+              <a
+                className={linkClasses.join(' ')}
+              >
+                <item.Icon className={styles.menuIcon} />
+                <span className={styles.menuLabel}>
+                  {item.label}
+                </span>
+              </a>
+            </Link>
+          )
+        })
       }
     </nav>
   );

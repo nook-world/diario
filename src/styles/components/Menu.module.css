@@ -26,16 +26,10 @@
   border-radius: 15px;
   text-decoration: none;
   transition: background-color .2s ease-in-out;
-}
-.menuItem .menuIcon,
-.menuItem .menuLabel {
   opacity: .5;
 }
 .menuActive {
   background: rgba(255, 255, 255, .5);
-}
-.menuActive .menuIcon,
-.menuActive .menuLabel {
   opacity: 1
 }
 .menuItem:hover {
