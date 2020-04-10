@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import Daily from './icons/Daily';
 import Creatures from './icons/Creatures';
@@ -8,6 +9,16 @@ import Case from './icons/Case';
 import styles from '../styles/components/Menu.module.css';
 
 function Menu({ selected }) {
+  const route = useRouter();
+
+  const [, menuActivated] = route.pathname.split("/");
+
+  const enumMenu = {
+    Daily: '',
+    Creatures: 'creatures',
+    Settings: 'settings'
+  }
+
   const items = [
     {
       label: 'Daily',
@@ -27,23 +38,30 @@ function Menu({ selected }) {
   ];
 
   return (
-    <nav className={ styles.menu }>
+    <nav className={styles.menu}>
       {
-        items.map((item, index) => (
-          <Link
-            key={ `menu-${ index }` }
-            href={ item.path }
-          >
-            <a
-              className={ styles.menuItem }
+        items.map((item, index) => {
+          const linkClasses = [styles.menuItem];
+          if (menuActivated === enumMenu[item.label]) {
+            linkClasses.push(styles.menuActive);
+          }
+
+          return (
+            <Link
+              key={`menu-${index}`}
+              href={item.path}
             >
-              <item.Icon className="menu-icon" />
-              <span className="menu-label">
-                { item.label }
-              </span>
-            </a>
-          </Link>
-        ))
+              <a
+                className={linkClasses.join(' ')}
+              >
+                <item.Icon className={styles.menuIcon} />
+                <span className={styles.menuLabel}>
+                  {item.label}
+                </span>
+              </a>
+            </Link>
+          )
+        })
       }
     </nav>
   );
