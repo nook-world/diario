@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { ContextProvider } from '../hooks/appContext';
+import PageLoading from '../components/PageLoading';
 
 import '../styles/styles.css';
 
@@ -21,14 +22,14 @@ function CustomApp({ Component, pageProps }) {
       controller = new AbortController;
       signal = controller.signal;
 
-      setStatus('loading');
-
       const languageData = await fetch(`/languages/${ selectedLanguage }.json`, { signal })
         .then(res => res.json())
         .catch(() => null);
 
-      setLanguage(languageData || {});
-      setStatus('iddle');
+      if (languageData) {
+        setLanguage(languageData);
+        setStatus('iddle');
+      }
 
     }
 
@@ -44,6 +45,7 @@ function CustomApp({ Component, pageProps }) {
       language={ language }
       setSelectedLanguage={ setSelectedLanguage }
     >
+      <PageLoading status={ status } />
       <Component
         { ...pageProps }
         language={ language }

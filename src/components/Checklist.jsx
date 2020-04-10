@@ -7,27 +7,10 @@ import styles from '../styles/components/Checklist.module.css';
 
 function Checklist({ language }) {
   const storageName = 'tasks';
-  const tasks = [
-    language.checkYourMail,
-    language.talkToAllVillagers,
-    language.checkRecycleBin,
-    language.checkBeachForRecipes,
-    language.checkForIslandVisitors,
-    language.completeNookMilesTasks,
-    language.waterYourFlowers,
-    language.hitEachRock,
-    language.shakeEachTree,
-    language.pickupAndSellSeaShells,
-    language.findTheGoldenSpotAndPlantAMoneyTree,
-    language.digUpAllFossils,
-    language.shootDownPresents,
-    language.goFishing,
-    language.goBugHunting,
-    language.goClamHunting,
-    language.plantFlowers,
-    language.plantTrees,
-    language.goIntoVillagersHousesForDIYRecipes
-  ];
+  let tasks = [];
+  if (language.tasks) {
+    tasks = [...language.tasks];
+  }
 
   const [completedTasks, setCompletedTasks] = useState([]);
 
