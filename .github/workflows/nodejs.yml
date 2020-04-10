@@ -33,6 +33,8 @@ jobs:
 
       - name: 🏗  Build Application
         run: npm run build
+
+      - name: Export Next Static Site
         run: npm run export
 
       - name: 🚀 Deploy
