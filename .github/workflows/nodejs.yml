@@ -27,6 +27,7 @@ jobs:
     - run: npm install
     - run: npm run build
     - run: npm run export
+    - run: touch out/.nojekyll
     - run: npm run update-pages
       env:
         CI: true
