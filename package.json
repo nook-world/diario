@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next export",
+    "update-pages": "node gh-pages"
   },
   "author": "Diogo Fernandes",
   "license": "ISC",
@@ -15,5 +17,8 @@
     "next-pwa": "^2.3.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }
