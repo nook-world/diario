@@ -17,7 +17,7 @@ jobs:
           node-version: '12.x'
 
       - name: 📦 Install Dependencies
-        run: npm run install
+        run: npm install
 
       - name: 🏗  Build Application
         run: npm run build
