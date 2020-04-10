@@ -60,6 +60,7 @@ h1 {
   align-items: center;
   min-height: 100vh;
   border-radius: 10px;
+  padding-bottom: 2em;
 }
 a.button {
   display: inline-flex;
