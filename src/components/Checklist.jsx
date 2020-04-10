@@ -5,67 +5,13 @@ import Percentage from './Percentage';
 
 import styles from '../styles/components/Checklist.module.css';
 
-function Checklist() {
+function Checklist({ language }) {
   const storageName = 'tasks';
-  const tasks = [
-    {
-      objective: 'Check your mail'
-    },
-    {
-      objective: 'Talk to all villagers'
-    },
-    {
-      objective: 'Check recycle bin'
-    },
-    {
-      objective: 'Check beach for recipes'
-    },
-    {
-      objective: 'Check for island visitors'
-    },
-    {
-      objective: 'Complete Nook Miles tasks'
-    },
-    {
-      objective: 'Water your flowers'
-    },
-    {
-      objective: 'Hit each rock'
-    },
-    {
-      objective: 'Shake each tree'
-    },
-    {
-      objective: 'Pickup and sell sea shells'
-    },
-    {
-      objective: 'Find the Golden Spot and plant a money tree'
-    },
-    {
-      objective: 'Dig up all fossils'
-    },
-    {
-      objective: 'Shoot down presents'
-    },
-    {
-      objective: 'Go fishing'
-    },
-    {
-      objective: 'Go bug hunting'
-    },
-    {
-      objective: 'Go clam hunting'
-    },
-    {
-      objective: 'Plant flowers'
-    },
-    {
-      objective: 'Plant trees'
-    },
-    {
-      objective: 'Go into villagers houses for DIY recipes'
-    }
-  ];
+  let tasks = [];
+  if (language.tasks) {
+    tasks = [...language.tasks];
+  }
+
   const [completedTasks, setCompletedTasks] = useState([]);
 
   useEffect(() => {
@@ -96,10 +42,11 @@ function Checklist() {
     <div className={ styles.checklist }>
       <div className={ styles.checklistHeader }>
         <Percentage
+          language={ language }
           current={ completedTasks.length }
           total={ tasks.length }
         />
-        <CurrentDate />
+        <CurrentDate language={ language } />
       </div>
       {
         tasks.map((task, index) => (
@@ -112,7 +59,7 @@ function Checklist() {
                 onChange={ () => updateTask(index) }
               />
               <span className={ styles.checklistText }>
-                { task.objective }
+                { task }
               </span>
             </label>
           </p>
@@ -128,7 +75,7 @@ function Checklist() {
               setCompletedTasks([]);
             } }
           >
-            Reset my tasks
+            { language.resetMyTasks }
           </button>
         </p>
       }

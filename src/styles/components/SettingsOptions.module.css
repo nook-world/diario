@@ -11,3 +11,30 @@
   background: #fff;
   border-radius: 30px;
 }
+.settingsOptionsChangeLanguage {
+  margin: .5em;
+  border: none;
+  padding: 0;
+  border-radius: 30px;
+  background: #fff;
+  padding: .2em 1em .8em;
+  text-align: center;
+  font-size: 1em;
+  font-family: Quicksand;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color .2s ease-in-out;
+}
+.settingsOptionsChangeLanguage:hover {
+  background:rgba(255, 255, 255, .5);
+}
+.settingsOptionsChangeLanguageSelected,
+.settingsOptionsChangeLanguageSelected:hover {
+  pointer-events: none;
+  background: #FACB61
+}
+.settingsOptionsFlag {
+  display: block;
+  margin: auto;
+  width: 100px;
+}

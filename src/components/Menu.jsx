@@ -6,9 +6,12 @@ import Daily from './icons/Daily';
 import Creatures from './icons/Creatures';
 import Case from './icons/Case';
 
+import { useAppContext } from '../hooks/appContext';
+
 import styles from '../styles/components/Menu.module.css';
 
 function Menu({ selected }) {
+  const { language } = useAppContext();
   const route = useRouter();
 
   const [, menuActivated] = route.pathname.split("/");
@@ -21,17 +24,17 @@ function Menu({ selected }) {
 
   const items = [
     {
-      label: 'Daily',
+      label: language.daily,
       Icon: Daily,
       path: '/'
     },
     {
-      label: 'Creatures',
+      label: language.creatures,
       Icon: Creatures,
       path: '/creatures/bugs'
     },
     {
-      label: 'Settings',
+      label: language.settings,
       Icon: Case,
       path: '/settings'
     }

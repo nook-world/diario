@@ -9,7 +9,7 @@ import CreaturesSwitch from './CreaturesSwitch';
 
 import styles from '../styles/components/CreaturesList.module.css';
 
-function CreaturesList({ type }) {
+function CreaturesList({ language, type }) {
   const [ keyword, setKeyword ] = useState('');
   const [ selectedCreatures, setSelectedCreatures ] = useState({
     bugs: [],
@@ -48,10 +48,11 @@ function CreaturesList({ type }) {
     <div className={ styles.creaturesList }>
       <div className={ styles.creaturesListHeader }>
         <CreaturesSwitch
+          language={ language }
           active={ type }
         />
         <div className={ styles.creaturesListHeaderInfo }>
-          <CurrentDate />
+          <CurrentDate language={ language } />
           <Percentage
             current={ selectedCreatures[type].length }
             total={ creatures[type].length }
@@ -60,12 +61,12 @@ function CreaturesList({ type }) {
       </div>
       <div className={ styles.creaturesListSearch }>
         <label>
-          Filter by name:
+          { language.filterByName }:
           <span className={ styles.creaturesListForm }>
             <input
               className={ `input ${ styles.creaturesListInput }`}
               type="search"
-              placeholder="Type your search here…"
+              placeholder={ language.typeYourSearchHere }
               value={ keyword }
               onChange={ (e) => setKeyword(e.currentTarget.value) }
             />
@@ -73,7 +74,7 @@ function CreaturesList({ type }) {
               className="button"
               onClick={ () => setKeyword('') }
             >
-              Clear
+              { language.clear }
             </button>
           </span>          
         </label>

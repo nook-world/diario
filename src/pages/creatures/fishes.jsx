@@ -3,15 +3,18 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import CreaturesList from '../../components/CreaturesList';
 
+import { useAppContext } from '../../hooks/appContext';
+
 import styles from '../../styles/pages/creatures.module.css';
 
 function Page() {
+  const { language } = useAppContext();
   return (
     <Layout
-      background={ styles.fishesBackground }
+      background={ styles.bugsBackground }
     >
-      <h1>Creatures (fishes)</h1>
-      <CreaturesList type="fishes" />
+      <h1>{ language.creatures } ({ language.fishes })</h1>
+      <CreaturesList language={ language } type="fishes" />
     </Layout>
   );
 }

@@ -1,3 +1,5 @@
 .layout {
-  background: radial-gradient(88% 16% at 50% 0%, #D9CDA7 71%, #F3F1E3 70%) no-repeat 50% 50% / 100% 100%;
+  background: #F3F1E3 radial-gradient(88% 16% at 50% 0%, #D9CDA7 71%, #F3F1E3 70%) no-repeat 50% 50% / 100% 100%;
+  background-size: 100% 780px;
+  background-position: top;
 }

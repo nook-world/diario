@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import styles from '../styles/components/SettingsOptions.module.css';
 
-function SettingsOptions() {
+function SettingsOptions({ language, setSelectedLanguage }) {
   const [status, setStatus] = useState('');
   const [data, setData] = useState({});
   const [reseted, setReseted] = useState({
@@ -22,60 +22,103 @@ function SettingsOptions() {
     setData("data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(storage)));
   }, []);
 
+  function changeLanguage(language) {
+    setSelectedLanguage(language);
+    localStorage.setItem('language', language);
+  }
+
   function readJson() {
     const file = inputFile.current.files[0];
 
-    if (!file) return setStatus('Add a file to import.');
+    if (!file) return setStatus(language.addAFileToImport);
 
     const reader = new FileReader();
     reader.readAsText(file, 'UTF-8');
     reader.onload = (event) => {
       try {
         const backup = JSON.parse(event.target.result);
-        console.log(backup);
         if (backup.tasks) localStorage.setItem('tasks', backup.tasks);
         if (backup.bugs) localStorage.setItem('bugs', backup.bugs);
         if (backup.fishes) localStorage.setItem('fishes', backup.fishes);
-        setStatus('Your backup is back!');
+        setStatus(language.yourBackupIsBack);
       } catch (error) {
-        setStatus('Error parsing file.');
+        setStatus(language.errorParsingFile);
       }
-    }
+    };
   }
+
+  const languages = [
+    {
+      short: 'pt',
+      full: 'Português',
+      country: 'Brazil'
+    },
+    {
+      short: 'en',
+      full: 'English',
+      country: 'USA'
+    }
+  ]
 
   return (
     <nav className={ styles.settingsOptions }>
-      <h2>Backup data</h2>
+      <h2>{ language.language }</h2>
+      <p>{ language.chooseTheDesiredLanguage }</p>
       <p>
-        Get my tasks and milestones to use in other place.
+        {
+          languages.map(languageInfo => {
+            const classes = [styles.settingsOptionsChangeLanguage];
+            if (language.selectedLanguage === languageInfo.short) {
+              classes.push(styles.settingsOptionsChangeLanguageSelected);
+            }
+            return (
+              <button
+                key={ `language-selector-${ languageInfo.short }` }
+                className={ classes.join(' ') }
+                onClick={ () => changeLanguage(languageInfo.short) }
+              >
+                <img
+                  src={ `/languages/${ languageInfo.short }.png` }
+                  className={ styles.settingsOptionsFlag }
+                  alt={ languageInfo.country }
+                />
+                { languageInfo.full }
+              </button>
+            );
+          })
+        }
+      </p>
+      <h2>{ language.backupData }</h2>
+      <p>
+        { language.getMyTasksAndMilestonesToUseInOtherPlace }
       </p>
       <p>
         <a href={ data } className="button" download="my-miles-backup.json">
-          Export
+          { language.export }
         </a>
       </p>
       <p>
-        Get the data you already exported.
+        { language.getTheDataYouAlreadyExported }
         <br />
-        <div class="fileArea">
+        <span className="fileArea">
           <input
             type="file"
             ref={ inputFile }
             accept="application/JSON"
-            required="true"
+            required
           />
-          <div class="fileDummy">
-            <div class="fileSuccess">File selected, now you can import your data</div>
-            <div class="fileDefault">Click to select a file to import</div>
-          </div>
-        </div>
+          <span className="fileDummy">
+            <span className="fileSuccess">{ language.fileSelectedNowYouCanImportYourData }</span>
+            <span className="fileDefault">{ language.clickToSelectAFileToImport }</span>
+          </span>
+        </span>
       </p>
       <p>
         <button
           className="button"
           onClick={ readJson }
         >
-          Import
+          { language.import }
         </button>
       </p>
       {
@@ -85,11 +128,13 @@ function SettingsOptions() {
         </p>
       }
       <img src="/assets/rule-confetti-brown.svg" alt="Rule Confetti Brow"/>
-      <h2>Remove content (DAAANGER)</h2>
+      <h2>{ language.removeContent } ({ language.daaanger })</h2>
       <p>
         {
           reseted.tasks &&
-          <>Tasks reseted</>
+          <>
+            { language.tasksReseted }
+          </>
         }
         {
           !reseted.tasks &&
@@ -100,14 +145,14 @@ function SettingsOptions() {
               localStorage.removeItem('tasks');
             } }
           >
-            Undo Tasks
+            { language.resetMyTasks }
           </button>
         }
       </p>
       <p>
         {
           reseted.bugs &&
-          <>Bugs reseted</>
+          <>{ language.bugsReseted }</>
         }
         {
           !reseted.bugs &&
@@ -118,14 +163,14 @@ function SettingsOptions() {
               localStorage.removeItem('bugs');
             } }
           >
-            Uncheck Bugs
+            { language.uncheckBugs }
           </button>
         }
       </p>
       <p>
         {
           reseted.fishes &&
-          <>Fishes reseted</>
+          <>{ language.fishesReseted }</>
         }
         {
           !reseted.fishes &&
@@ -136,7 +181,7 @@ function SettingsOptions() {
               localStorage.removeItem('fishes');
             } }
           >
-            Uncheck Fishes
+            { language.uncheckFishes }
           </button>
         }
       </p>
@@ -148,7 +193,7 @@ function SettingsOptions() {
             localStorage.clear();
           } }
         >
-          Clean All
+          { language.cleanAll }
         </button>
       </p>
     </nav>

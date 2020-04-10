@@ -2,7 +2,11 @@ import React from 'react';
 
 import styles from '../styles/components/Percentage.module.css';
 
+import { useAppContext } from '../hooks/appContext';
+
 function Percentage({ current, total }) {
+  const { language } = useAppContext();
+
   const percentage = (current / total * 100).toFixed(0);
   return (
     <span
@@ -17,7 +21,7 @@ function Percentage({ current, total }) {
         )`
       }}
     >
-      { current } of { total } ({ percentage }%)
+      { current } { language.of } { total } ({ percentage }%)
     </span>
   );
 }
