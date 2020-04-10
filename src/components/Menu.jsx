@@ -11,6 +11,14 @@ import styles from '../styles/components/Menu.module.css';
 function Menu({ selected }) {
   const route = useRouter();
 
+  const [, menuItem] = route.pathname.split("/");
+
+  const enumMenu = {
+    Daily: '',
+    Creatures: 'creatures',
+    Settings: 'settings'
+  }
+
   const items = [
     {
       label: 'Daily',
@@ -38,10 +46,10 @@ function Menu({ selected }) {
             href={item.path}
           >
             <a
-              className={`${styles.menuItem} ${route.pathname === item.path && styles.menuActive}`}
+              className={`${styles.menuItem} ${menuItem === enumMenu[item.label] && styles.menuActive}`}
             >
-              <item.Icon className="menu-icon" />
-              <span className="menu-label">
+              <item.Icon className={styles.menuIcon} />
+              <span className={styles.menuLabel}>
                 {item.label}
               </span>
             </a>
