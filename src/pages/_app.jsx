@@ -22,7 +22,7 @@ function CustomApp({ Component, pageProps }) {
       controller = new AbortController;
       signal = controller.signal;
 
-      const languageData = await fetch(`/languages/${ selectedLanguage }.json`, { signal })
+      const languageData = await fetch(`/languages/${ selectedLanguage }.json?v1`, { signal })
         .then(res => res.json())
         .catch(() => null);
 
