@@ -1,31 +1,34 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
-import styles from '../styles/components/SettingsOptions.module.css';
+import styles from "../styles/components/SettingsOptions.module.css";
 
 function SettingsOptions({ language, setSelectedLanguage }) {
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState("");
   const [data, setData] = useState({});
   const [reseted, setReseted] = useState({
     tasks: false,
     bugs: false,
     fishes: false,
-    fossils: false
+    fossils: false,
   });
   const inputFile = useRef(null);
 
   useEffect(() => {
     const storage = {
-      tasks: localStorage.getItem('tasks'),
-      bugs: localStorage.getItem('bugs'),
-      fishes: localStorage.getItem('fishes')
+      tasks: localStorage.getItem("tasks"),
+      bugs: localStorage.getItem("bugs"),
+      fishes: localStorage.getItem("fishes"),
     };
 
-    setData("data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(storage)));
+    setData(
+      "data:text/json;charset=utf-8," +
+        encodeURIComponent(JSON.stringify(storage))
+    );
   }, []);
 
   function changeLanguage(language) {
     setSelectedLanguage(language);
-    localStorage.setItem('language', language);
+    localStorage.setItem("language", language);
   }
 
   function readJson() {
@@ -214,6 +217,14 @@ function SettingsOptions({ language, setSelectedLanguage }) {
         >
           { language.cleanAll }
         </button>
+      </p>
+      <img src="/assets/rule-confetti-brown.svg" alt="Rule Confetti Brow" />
+      <h2>{language.creditsTitle}</h2>
+      <p>
+        {language.creditsBody} <a href="https://twitter.com/_luisf02">Chico,</a>{" "}
+        <a href="https://instagr.am/fotografolixo">Dio</a>,{" "}
+        <a href="https://twitter.com/vavomr">Gus</a> &{" "}
+        <a href="https://twitter.com/filipekiss">Kiss</a>
       </p>
     </nav>
   );

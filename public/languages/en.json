@@ -64,5 +64,7 @@
   "chooseTheDesiredLanguage": "Choose the desired language",
   "copyToClipboard": "Copy to clipboard",
   "copyMissingItems": "Copy missing {museumType}",
-  "copyCaughtItems": "Copy caught {museumType}"
+  "copyCaughtItems": "Copy caught {museumType}",
+  "creditsTitle": "Credits",
+  "creditsBody": "Made with ♥️ by"
 }
