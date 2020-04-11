@@ -48,10 +48,6 @@ function SettingsOptions({ language, setSelectedLanguage }) {
     };
   }
 
-  function resetMuseum(type) {
-
-  }
-
   const languages = [
     {
       short: 'pt',

@@ -48,8 +48,10 @@ function MuseumToClipboard({
               language[type].toLowerCase()
             )
           }
-        </button> 
-        <button className="button" onClick={ () => copyToClipboard(caught) }>
+        </button>
+      </p>
+      <p>
+        <button className="button buttonSecondary" onClick={ () => copyToClipboard(caught) }>
           {
             language.copyCaughtItems?.replace(
               '{museumType}',
