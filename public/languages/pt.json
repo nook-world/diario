@@ -2,6 +2,7 @@
   "selectedLanguage": "pt",
   "of": "de",
   "daily": "Diário",
+  "museum": "Museu",
   "creatures": "Criaturas",
   "settings": "Configurações",
   "error404": "Erro 404",
@@ -28,6 +29,7 @@
   "resetMyTasks": "Reiniciar tarefas",
   "bugs": "Insetos",
   "fishes": "Peixes",
+  "fossils": "Fosséis",
   "filterByName": "Procurar por nome",
   "typeYourSearchHere": "Digite sua busca aqui…",
   "clear": "Limpar",
@@ -53,9 +55,14 @@
   "tasksReseted": "Tarefas reiniciadas",
   "bugsReseted": "Insetos reiniciados",
   "fishesReseted": "Peixes reiniciados",
+  "fossilsReseted": "Fósseis reiniciados",
   "uncheckBugs": "Desmarcar insetos",
   "uncheckFishes": "Desmarcar peixes",
+  "uncheckFossils": "Dermarcar fósseis",
   "cleanAll": "Limpar todos",
   "language": "Idioma",
-  "chooseTheDesiredLanguage": "Escolha o idioma em que deseja"
+  "chooseTheDesiredLanguage": "Escolha o idioma em que deseja",
+  "copyToClipboard": "Copiar para área de transferência",
+  "copyMissingItems": "Copiar {museumType} restantes",
+  "copyCaughtItems": "Copiar {museumType} pegos"
 }

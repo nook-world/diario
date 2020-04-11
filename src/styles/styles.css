@@ -79,6 +79,11 @@ a.button {
   color: #FFF;
   cursor: pointer;
 }
+.buttonSecondary {
+  background: #D8CCAB;
+  border-color: #D8CCAB;
+  color: var(--text-color);
+}
 .buttonDanger {
   background: tomato;
   border-color: tomato;

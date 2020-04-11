@@ -8,7 +8,8 @@ function SettingsOptions({ language, setSelectedLanguage }) {
   const [reseted, setReseted] = useState({
     tasks: false,
     bugs: false,
-    fishes: false
+    fishes: false,
+    fossils: false
   });
   const inputFile = useRef(null);
 
@@ -141,7 +142,7 @@ function SettingsOptions({ language, setSelectedLanguage }) {
           <button
             className="button buttonDanger"
             onClick={ () => {
-              setReseted({ ...setReseted, tasks: true });
+              setReseted({ ...reseted, tasks: true });
               localStorage.removeItem('tasks');
             } }
           >
@@ -159,7 +160,7 @@ function SettingsOptions({ language, setSelectedLanguage }) {
           <button
             className="button buttonDanger"
             onClick={ () => {
-              setReseted({ ...setReseted, bugs: true });
+              setReseted({ ...reseted, bugs: true });
               localStorage.removeItem('bugs');
             } }
           >
@@ -177,7 +178,7 @@ function SettingsOptions({ language, setSelectedLanguage }) {
           <button
             className="button buttonDanger"
             onClick={ () => {
-              setReseted({ ...setReseted, fishes: true });
+              setReseted({ ...reseted, fishes: true });
               localStorage.removeItem('fishes');
             } }
           >
@@ -186,10 +187,28 @@ function SettingsOptions({ language, setSelectedLanguage }) {
         }
       </p>
       <p>
+        {
+          reseted.fossils &&
+          <>{ language.fossilsReseted }</>
+        }
+        {
+          !reseted.fossils &&
+          <button
+            className="button buttonDanger"
+            onClick={ () => {
+              setReseted({ ...reseted, fossils: true });
+              localStorage.removeItem('fossils');
+            } }
+          >
+            { language.uncheckFossils }
+          </button>
+        }
+      </p>
+      <p>
         <button
           className="button buttonDanger"
           onClick={ () => {
-            setReseted({ tasks: true, bugs: true, fishes: true });
+            setReseted({ tasks: true, bugs: true, fishes: true, fossils: true });
             localStorage.clear();
           } }
         >

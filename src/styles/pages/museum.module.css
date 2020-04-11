@@ -7,3 +7,7 @@
   background: url('/assets/compressed/waves.jpg');
   background-size: 200px;
 }
+.fossilsBackground {
+  background: #f8f8f0 url('/assets/pattern-dots-2x.png');
+  background-size: 10px;
+}
