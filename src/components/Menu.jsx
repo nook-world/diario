@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import Daily from './icons/Daily';
-import Creatures from './icons/Creatures';
+import Museum from './icons/Museum';
 import Case from './icons/Case';
 
 import styles from '../styles/components/Menu.module.css';
@@ -21,10 +21,10 @@ function Menu({ language }) {
       rootPath: ''
     },
     {
-      label: 'creatures',
-      Icon: Creatures,
-      path: '/creatures/bugs',
-      rootPath: 'creatures'
+      label: 'museum',
+      Icon: Museum,
+      path: '/museum/bugs',
+      rootPath: 'museum'
     },
     {
       label: 'settings',

@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import bugs from '../database/bugs.json';
 import fishes from '../database/fishes.json';
 
-import CurrentDate from './CurrentDate';
-import Percentage from './Percentage';
-import CreaturesSwitch from './CreaturesSwitch';
+import MuseumHeader from './MuseumHeader';
+import MuseumSearch from './MuseumSearch';
+import MuseumToClipboard from './MuseumToClipboard';
 
 import styles from '../styles/components/CreaturesList.module.css';
 
@@ -46,39 +46,17 @@ function CreaturesList({ language, type }) {
 
   return (
     <div className={ styles.creaturesList }>
-      <div className={ styles.creaturesListHeader }>
-        <CreaturesSwitch
-          language={ language }
-          active={ type }
-        />
-        <div className={ styles.creaturesListHeaderInfo }>
-          <CurrentDate language={ language } />
-          <Percentage
-            current={ selectedCreatures[type].length }
-            total={ creatures[type].length }
-          />
-        </div>
-      </div>
-      <div className={ styles.creaturesListSearch }>
-        <label>
-          { language.filterByName }:
-          <span className={ styles.creaturesListForm }>
-            <input
-              className={ `input ${ styles.creaturesListInput }`}
-              type="search"
-              placeholder={ language.typeYourSearchHere }
-              value={ keyword }
-              onChange={ (e) => setKeyword(e.currentTarget.value) }
-            />
-            <button
-              className="button"
-              onClick={ () => setKeyword('') }
-            >
-              { language.clear }
-            </button>
-          </span>          
-        </label>
-      </div>
+      <MuseumHeader
+        language={ language }
+        type={ type }
+        currentItems={ selectedCreatures[type].length }
+        totalItems={ creatures[type].length }
+      />
+      <MuseumSearch
+        language={ language }
+        keyword={ keyword }
+        setKeyword={ setKeyword }
+      />
       {
         creatures[type]
           .filter(creature => creature.name.toLowerCase().includes(keyword.toLowerCase().trim()))
@@ -112,6 +90,12 @@ function CreaturesList({ language, type }) {
             );
           })
       }
+      <MuseumToClipboard
+        language={ language }
+        type={ type }
+        selected={ selectedCreatures[type] }
+        list={ creatures[type] }
+      />
     </div>
   );
 };

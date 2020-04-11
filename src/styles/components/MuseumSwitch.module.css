@@ -1,10 +1,10 @@
-.creaturesSwitch {
+.museumSwitch {
   display: inline-flex;
   background: #FFF;
   padding: .2em;
   border-radius: 50px;
 }
-.creaturesSwitchButton {
+.museumSwitchButton {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +19,7 @@
   vertical-align: middle;
   text-decoration: none;
 }
-.creaturesSwitchButtonActive {
+.museumSwitchButtonActive {
   background: #FACB61;
   color: #FFF;
 }

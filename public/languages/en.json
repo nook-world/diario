@@ -2,6 +2,7 @@
   "selectedLanguage": "en",
   "of": "of",
   "daily": "Daily",
+  "museum": "Museum",
   "creatures": "Creatures",
   "settings": "Settings",
   "error404": "Error 404",
@@ -28,6 +29,7 @@
   "resetMyTasks": "Reset my tasks",
   "bugs": "Bugs",
   "fishes": "Fishes",
+  "fossils": "Fossils",
   "filterByName": "Filter by name",
   "typeYourSearchHere": "Type your search here…",
   "clear": "Clear",
@@ -53,9 +55,14 @@
   "tasksReseted": "Tasks reseted",
   "bugsReseted": "Bugs reseted",
   "fishesReseted": "Fishes reseted",
-  "uncheckBugs": "Uncheck Bugs",
-  "uncheckFishes": "Uncheck Fishes",
+  "fossilsReseted": "Fossils reseted",
+  "uncheckBugs": "Uncheck bugs",
+  "uncheckFishes": "Uncheck fishes",
+  "uncheckFossils": "Uncheck fossils",
   "cleanAll": "Clean All",
   "language": "Language",
-  "chooseTheDesiredLanguage": "Choose the desired language"
+  "chooseTheDesiredLanguage": "Choose the desired language",
+  "copyToClipboard": "Copy to clipboard",
+  "copyMissingItems": "Copy missing {museumType}",
+  "copyCaughtItems": "Copy caught {museumType}"
 }
