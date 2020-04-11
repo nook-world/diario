@@ -22,7 +22,7 @@ function SettingsOptions({ language, setSelectedLanguage }) {
 
     setData(
       "data:text/json;charset=utf-8," +
-        encodeURIComponent(JSON.stringify(storage))
+      encodeURIComponent(JSON.stringify(storage))
     );
   }, []);
 
@@ -65,9 +65,9 @@ function SettingsOptions({ language, setSelectedLanguage }) {
   ]
 
   return (
-    <nav className={ styles.settingsOptions }>
-      <h2>{ language.language }</h2>
-      <p>{ language.chooseTheDesiredLanguage }</p>
+    <nav className={styles.settingsOptions}>
+      <h2>{language.language}</h2>
+      <p>{language.chooseTheDesiredLanguage}</p>
       <p>
         {
           languages.map(languageInfo => {
@@ -77,151 +77,151 @@ function SettingsOptions({ language, setSelectedLanguage }) {
             }
             return (
               <button
-                key={ `language-selector-${ languageInfo.short }` }
-                className={ classes.join(' ') }
-                onClick={ () => changeLanguage(languageInfo.short) }
+                key={`language-selector-${languageInfo.short}`}
+                className={classes.join(' ')}
+                onClick={() => changeLanguage(languageInfo.short)}
               >
                 <img
-                  src={ `/languages/${ languageInfo.short }.png` }
-                  className={ styles.settingsOptionsFlag }
-                  alt={ languageInfo.country }
+                  src={`/languages/${languageInfo.short}.png`}
+                  className={styles.settingsOptionsFlag}
+                  alt={languageInfo.country}
                 />
-                { languageInfo.full }
+                {languageInfo.full}
               </button>
             );
           })
         }
       </p>
-      <h2>{ language.backupData }</h2>
+      <h2>{language.backupData}</h2>
       <p>
-        { language.getMyTasksAndMilestonesToUseInOtherPlace }
+        {language.getMyTasksAndMilestonesToUseInOtherPlace}
       </p>
       <p>
-        <a href={ data } className="button" download="my-miles-backup.json">
-          { language.export }
+        <a href={data} className="button" download="my-miles-backup.json">
+          {language.export}
         </a>
       </p>
       <p>
-        { language.getTheDataYouAlreadyExported }
+        {language.getTheDataYouAlreadyExported}
         <br />
         <span className="fileArea">
           <input
             type="file"
-            ref={ inputFile }
+            ref={inputFile}
             accept="application/JSON"
             required
           />
           <span className="fileDummy">
-            <span className="fileSuccess">{ language.fileSelectedNowYouCanImportYourData }</span>
-            <span className="fileDefault">{ language.clickToSelectAFileToImport }</span>
+            <span className="fileSuccess">{language.fileSelectedNowYouCanImportYourData}</span>
+            <span className="fileDefault">{language.clickToSelectAFileToImport}</span>
           </span>
         </span>
       </p>
       <p>
         <button
           className="button"
-          onClick={ readJson }
+          onClick={readJson}
         >
-          { language.import }
+          {language.import}
         </button>
       </p>
       {
         status &&
         <p>
-          <span className={ styles.settingsOptionsFeedback }>{ status }</span>
+          <span className={styles.settingsOptionsFeedback}>{status}</span>
         </p>
       }
-      <img src="/assets/rule-confetti-brown.svg" alt="Rule Confetti Brow"/>
-      <h2>{ language.removeContent } ({ language.daaanger })</h2>
+      <img src="/assets/rule-confetti-brown.svg" alt="Rule Confetti Brow" />
+      <h2>{language.removeContent} ({language.daaanger})</h2>
       <p>
         {
           reseted.tasks &&
           <>
-            { language.tasksReseted }
+            {language.tasksReseted}
           </>
         }
         {
           !reseted.tasks &&
           <button
             className="button buttonDanger"
-            onClick={ () => {
+            onClick={() => {
               setReseted({ ...reseted, tasks: true });
               localStorage.removeItem('tasks');
-            } }
+            }}
           >
-            { language.resetMyTasks }
+            {language.resetMyTasks}
           </button>
         }
       </p>
       <p>
         {
           reseted.bugs &&
-          <>{ language.bugsReseted }</>
+          <>{language.bugsReseted}</>
         }
         {
           !reseted.bugs &&
           <button
             className="button buttonDanger"
-            onClick={ () => {
+            onClick={() => {
               setReseted({ ...reseted, bugs: true });
               localStorage.removeItem('bugs');
-            } }
+            }}
           >
-            { language.uncheckBugs }
+            {language.uncheckBugs}
           </button>
         }
       </p>
       <p>
         {
           reseted.fishes &&
-          <>{ language.fishesReseted }</>
+          <>{language.fishesReseted}</>
         }
         {
           !reseted.fishes &&
           <button
             className="button buttonDanger"
-            onClick={ () => {
+            onClick={() => {
               setReseted({ ...reseted, fishes: true });
               localStorage.removeItem('fishes');
-            } }
+            }}
           >
-            { language.uncheckFishes }
+            {language.uncheckFishes}
           </button>
         }
       </p>
       <p>
         {
           reseted.fossils &&
-          <>{ language.fossilsReseted }</>
+          <>{language.fossilsReseted}</>
         }
         {
           !reseted.fossils &&
           <button
             className="button buttonDanger"
-            onClick={ () => {
+            onClick={() => {
               setReseted({ ...reseted, fossils: true });
               localStorage.removeItem('fossils');
-            } }
+            }}
           >
-            { language.uncheckFossils }
+            {language.uncheckFossils}
           </button>
         }
       </p>
       <p>
         <button
           className="button buttonDanger"
-          onClick={ () => {
+          onClick={() => {
             setReseted({ tasks: true, bugs: true, fishes: true, fossils: true });
             localStorage.clear();
-          } }
+          }}
         >
-          { language.cleanAll }
+          {language.cleanAll}
         </button>
       </p>
       <img src="/assets/rule-confetti-brown.svg" alt="Rule Confetti Brow" />
       <h2>{language.creditsTitle}</h2>
       <p>
-        {language.creditsBody} <a href="https://twitter.com/_luisf02">Chico,</a>{" "}
+        {language.creditsBody} <a href="https://twitter.com/_luisf02">Chico</a>,{" "}
         <a href="https://instagr.am/fotografolixo">Dio</a>,{" "}
         <a href="https://twitter.com/vavomr">Gus</a> &{" "}
         <a href="https://twitter.com/filipekiss">Kiss</a>
