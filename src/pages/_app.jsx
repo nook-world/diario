@@ -8,12 +8,20 @@ import '../styles/styles.css';
 
 function CustomApp({ Component, pageProps }) {
   const [status, setStatus] = useState('loading');
-  const [selectedLanguage, setSelectedLanguage] = useState('pt');
+  const [selectedLanguage, setSelectedLanguage] = useState('en');
   const [language, setLanguage] = useState({});
 
   useEffect(() => {
+    // Try to get user language, if is not one of the possibles, default to english
+    const possibleLanguages = ['pt', 'en'];
+    let userLanguage = 
+      (navigator.userLanguage || navigator.language || 'en')
+        .substring(0, 2);
+
+    if (!possibleLanguages.includes(userLanguage)) userLanguage = 'en';
+
     const storageLanguage = localStorage.getItem('language');
-    if (storageLanguage) setSelectedLanguage(storageLanguage);
+    if (storageLanguage) setSelectedLanguage(storageLanguage || userLanguage);
   }, []);
 
   useEffect(() => {
@@ -31,7 +39,6 @@ function CustomApp({ Component, pageProps }) {
         setLanguage(languageData);
         setStatus('iddle');
       }
-
     }
 
     fetchLanguage();
