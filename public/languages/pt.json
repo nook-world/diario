@@ -64,5 +64,7 @@
   "chooseTheDesiredLanguage": "Escolha o idioma em que deseja",
   "copyToClipboard": "Copiar para área de transferência",
   "copyMissingItems": "Copiar {museumType} restantes",
-  "copyCaughtItems": "Copiar {museumType} pegos"
+  "copyCaughtItems": "Copiar {museumType} pegos",
+  "creditsTitle": "Créditos",
+  "creditsBody": "Feito com ♥️ por"
 }
