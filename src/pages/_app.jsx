@@ -13,11 +13,12 @@ function CustomApp({ Component, pageProps }) {
   const [language, setLanguage] = useState({});
 
   useEffect(() => {
-    // Try to get user language, if is not one of the possibles, default to english
     const possibleLanguages = ['pt', 'en'];
-    let userLanguage = 
+    let userLanguage =
       (navigator.userLanguage || navigator.language || defaultLanguage)
         .substring(0, 2);
+
+    if (!localStorage.getItem('language')) localStorage.setItem('language', userLanguage);
 
     if (!possibleLanguages.includes(userLanguage)) userLanguage = defaultLanguage;
 
@@ -32,7 +33,7 @@ function CustomApp({ Component, pageProps }) {
       controller = new AbortController;
       signal = controller.signal;
 
-      const languageData = await fetch(`/languages/${ selectedLanguage }.json?v2`, { signal })
+      const languageData = await fetch(`/languages/${selectedLanguage}.json?v2`, { signal })
         .then(res => res.json())
         .catch(() => null);
 
@@ -47,21 +48,21 @@ function CustomApp({ Component, pageProps }) {
     return () => {
       controller && controller.abort();
     }
-  }, [ selectedLanguage ]);
+  }, [selectedLanguage]);
 
   return (
     <ContextProvider
-      language={ language }
-      setSelectedLanguage={ setSelectedLanguage }
+      language={language}
+      setSelectedLanguage={setSelectedLanguage}
     >
-      <PageLoading status={ status } />
+      <PageLoading status={status} />
       <Component
-        { ...pageProps }
-        language={ language }
-        setSelectedLanguage={ setSelectedLanguage }
+        {...pageProps}
+        language={language}
+        setSelectedLanguage={setSelectedLanguage}
       />
       <Menu
-        language={ language }
+        language={language}
       />
     </ContextProvider>
   );
