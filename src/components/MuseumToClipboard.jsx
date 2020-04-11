@@ -33,8 +33,6 @@ function MuseumToClipboard({
   function copyToClipboard(input) {
     input.current.value = filteredList[input.current.name];
     input.current.select();
-    console.log('missing', missingList);
-
     document.execCommand("copy");
     alert('Copied');
   }
