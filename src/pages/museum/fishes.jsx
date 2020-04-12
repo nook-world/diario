@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Layout from '../../components/Layout';
-import CreaturesList from '../../components/CreaturesList';
+import MuseumList from '../../components/MuseumList';
 
 import styles from '../../styles/pages/museum.module.css';
 
@@ -11,7 +11,7 @@ function Page({ language }) {
       background={ styles.fishesBackground }
     >
       <h1>{ language.museum } ({ language.fishes })</h1>
-      <CreaturesList language={ language } type="fishes" />
+      <MuseumList language={ language } type="fishes" />
     </Layout>
   );
 }
