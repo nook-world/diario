@@ -36,7 +36,8 @@ body {
   color: var(--text-color);
   border-radius: 10px;
 }
-a {
+a,
+button {
   outline: none;
 }
 h1 {
