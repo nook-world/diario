@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-import bugs from '../database/bugs.json';
-import fishes from '../database/fishes.json';
-import fossils from '../database/fossils.json';
+import bugs from "@nook-world/data/bugs";
+import fishes from "@nook-world/data/fishes";
+import fossils from "@nook-world/data/fossils";
 
 import MuseumHeader from './MuseumHeader';
 import MuseumSearch from './MuseumSearch';

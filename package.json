@@ -12,6 +12,7 @@
   "author": "Diogo Fernandes",
   "license": "ISC",
   "dependencies": {
+    "@nook-world/data": "^0.2.2",
     "next": "^9.3.4",
     "next-pwa": "^2.3.3",
     "react": "^16.13.1",
