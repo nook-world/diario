@@ -46,6 +46,8 @@ function Layout({
         <meta property="og:site_name" content="Diário Nook World" />
         <meta property="og:url" content="https://diario.nook.world" />
         <meta property="og:image" content="https://diario.nook.world/opengraph.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
       </Head>
       { children }
       <div className="ios-peek" />
