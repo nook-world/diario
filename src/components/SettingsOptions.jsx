@@ -18,6 +18,7 @@ function SettingsOptions({ language, setSelectedLanguage }) {
       tasks: localStorage.getItem("tasks"),
       bugs: localStorage.getItem("bugs"),
       fishes: localStorage.getItem("fishes"),
+      fossils: localStorage.getItem("fossils"),
     };
 
     setData(
@@ -44,6 +45,7 @@ function SettingsOptions({ language, setSelectedLanguage }) {
         if (backup.tasks) localStorage.setItem('tasks', backup.tasks);
         if (backup.bugs) localStorage.setItem('bugs', backup.bugs);
         if (backup.fishes) localStorage.setItem('fishes', backup.fishes);
+        if (backup.fossils) localStorage.setItem('fossils', backup.fossils);
         setStatus(language.yourBackupIsBack);
       } catch (error) {
         setStatus(language.errorParsingFile);
