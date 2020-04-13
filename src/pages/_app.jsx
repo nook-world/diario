@@ -3,8 +3,21 @@ import React, { useState, useEffect } from 'react';
 import { ContextProvider } from '../hooks/appContext';
 import PageLoading from '../components/PageLoading';
 import Menu from '../components/Menu';
+import * as Fathom from 'fathom-client';
+import Router from 'next/router';
 
 import '../styles/styles.css';
+
+Router.events.on('routeChangeComplete', () => {
+  Fathom.trackPageview();
+})
+
+
+function AnalyticsEffect() {
+  Fathom.load(process.env.FATHOM_URL);
+  Fathom.setSiteId(process.env.FATHOM_SITE_ID);
+  Fathom.trackPageview();
+}
 
 function CustomApp({ Component, pageProps }) {
   const defaultLanguage = 'pt';
@@ -25,6 +38,8 @@ function CustomApp({ Component, pageProps }) {
     const storageLanguage = localStorage.getItem('language');
     if (storageLanguage) setSelectedLanguage(storageLanguage || userLanguage);
   }, []);
+
+  useEffect(AnalyticsEffect, []);
 
   useEffect(() => {
     let controller, signal;

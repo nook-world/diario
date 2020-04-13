@@ -23,6 +23,8 @@ jobs:
 
       - name: 🏗  Build Application
         run: npm run build
+        env:
+          FATHOM_SITE_ID: ${{ secrets.FATHOM_SITE_ID }}
 
       - name: 🧳 Export Next Static Site
         run: npm run export
