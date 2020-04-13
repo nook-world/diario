@@ -22,7 +22,9 @@ jobs:
           npm install
 
       - name: 🏗  Build Application
-        run: npm run build
+        run: |
+          echo "Using Analytics ID: $FATHOM_SIDE_ID"
+          npm run build
         env:
           FATHOM_SITE_ID: ${{ secrets.FATHOM_SITE_ID }}
 
