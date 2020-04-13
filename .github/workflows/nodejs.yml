@@ -18,6 +18,8 @@ jobs:
 
       - name: 📦 Install Dependencies
         run: npm install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_GH }}
 
       - name: 🏗  Build Application
         run: npm run build
