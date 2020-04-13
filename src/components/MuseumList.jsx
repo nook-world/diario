@@ -71,7 +71,7 @@ function MuseumList({ language, type }) {
           const isSelected = selectedMuseumItem[type].includes(museumItem.id);
           const labelClasses = [styles.museumListLabel];
           if (isSelected) labelClasses.push(styles.museumListLabelActive);
-          let imageUrl = `/${type}/compressed/${museumItem.id}.png`;
+          let imageUrl = `/${type}/${museumItem.id}.png`;
           let imageAlt = museumItem.name;
 
           if (type === "fossils") {

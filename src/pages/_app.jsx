@@ -10,8 +10,7 @@ import '../styles/styles.css';
 
 Router.events.on('routeChangeComplete', () => {
   Fathom.trackPageview();
-})
-
+});
 
 function AnalyticsEffect() {
   Fathom.load(process.env.FATHOM_URL);
