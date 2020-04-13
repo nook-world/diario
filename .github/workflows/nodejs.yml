@@ -17,9 +17,9 @@ jobs:
           node-version: '12.x'
 
       - name: 📦 Install Dependencies
-        run: npm install
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_GH }}
+        run: |
+          npm config set //npm.pkg.github.com/:_authToken ${{ secrets.NPM_TOKEN_GH }} --userconfig .npmrc
+          npm install
 
       - name: 🏗  Build Application
         run: npm run build
