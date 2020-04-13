@@ -66,5 +66,6 @@
   "copyMissingItems": "Copy missing {museumType}",
   "copyCaughtItems": "Copy caught {museumType}",
   "creditsTitle": "Credits",
-  "creditsBody": "Made with ♥️ by"
+  "creditsBody": "Made with ♥️ by",
+  "twitterBody": "You can follow us to hear the latest news on"
 }

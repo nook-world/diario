@@ -23,7 +23,7 @@ function SettingsOptions({ language, setSelectedLanguage }) {
 
     setData(
       "data:text/json;charset=utf-8," +
-      encodeURIComponent(JSON.stringify(storage))
+        encodeURIComponent(JSON.stringify(storage))
     );
   }, []);
 
@@ -38,14 +38,14 @@ function SettingsOptions({ language, setSelectedLanguage }) {
     if (!file) return setStatus(language.addAFileToImport);
 
     const reader = new FileReader();
-    reader.readAsText(file, 'UTF-8');
+    reader.readAsText(file, "UTF-8");
     reader.onload = (event) => {
       try {
         const backup = JSON.parse(event.target.result);
-        if (backup.tasks) localStorage.setItem('tasks', backup.tasks);
-        if (backup.bugs) localStorage.setItem('bugs', backup.bugs);
-        if (backup.fishes) localStorage.setItem('fishes', backup.fishes);
-        if (backup.fossils) localStorage.setItem('fossils', backup.fossils);
+        if (backup.tasks) localStorage.setItem("tasks", backup.tasks);
+        if (backup.bugs) localStorage.setItem("bugs", backup.bugs);
+        if (backup.fishes) localStorage.setItem("fishes", backup.fishes);
+        if (backup.fossils) localStorage.setItem("fossils", backup.fossils);
         setStatus(language.yourBackupIsBack);
       } catch (error) {
         setStatus(language.errorParsingFile);
@@ -55,49 +55,45 @@ function SettingsOptions({ language, setSelectedLanguage }) {
 
   const languages = [
     {
-      short: 'pt',
-      full: 'Português',
-      country: 'Brazil'
+      short: "pt",
+      full: "Português",
+      country: "Brazil",
     },
     {
-      short: 'en',
-      full: 'English',
-      country: 'USA'
-    }
-  ]
+      short: "en",
+      full: "English",
+      country: "USA",
+    },
+  ];
 
   return (
     <nav className={styles.settingsOptions}>
       <h2>{language.language}</h2>
       <p>{language.chooseTheDesiredLanguage}</p>
       <p>
-        {
-          languages.map(languageInfo => {
-            const classes = [styles.settingsOptionsChangeLanguage];
-            if (language.selectedLanguage === languageInfo.short) {
-              classes.push(styles.settingsOptionsChangeLanguageSelected);
-            }
-            return (
-              <button
-                key={`language-selector-${languageInfo.short}`}
-                className={classes.join(' ')}
-                onClick={() => changeLanguage(languageInfo.short)}
-              >
-                <img
-                  src={`/languages/${languageInfo.short}.png`}
-                  className={styles.settingsOptionsFlag}
-                  alt={languageInfo.country}
-                />
-                {languageInfo.full}
-              </button>
-            );
-          })
-        }
+        {languages.map((languageInfo) => {
+          const classes = [styles.settingsOptionsChangeLanguage];
+          if (language.selectedLanguage === languageInfo.short) {
+            classes.push(styles.settingsOptionsChangeLanguageSelected);
+          }
+          return (
+            <button
+              key={`language-selector-${languageInfo.short}`}
+              className={classes.join(" ")}
+              onClick={() => changeLanguage(languageInfo.short)}
+            >
+              <img
+                src={`/languages/${languageInfo.short}.png`}
+                className={styles.settingsOptionsFlag}
+                alt={languageInfo.country}
+              />
+              {languageInfo.full}
+            </button>
+          );
+        })}
       </p>
       <h2>{language.backupData}</h2>
-      <p>
-        {language.getMyTasksAndMilestonesToUseInOtherPlace}
-      </p>
+      <p>{language.getMyTasksAndMilestonesToUseInOtherPlace}</p>
       <p>
         <a href={data} className="button" download="my-miles-backup.json">
           {language.export}
@@ -114,106 +110,95 @@ function SettingsOptions({ language, setSelectedLanguage }) {
             required
           />
           <span className="fileDummy">
-            <span className="fileSuccess">{language.fileSelectedNowYouCanImportYourData}</span>
-            <span className="fileDefault">{language.clickToSelectAFileToImport}</span>
+            <span className="fileSuccess">
+              {language.fileSelectedNowYouCanImportYourData}
+            </span>
+            <span className="fileDefault">
+              {language.clickToSelectAFileToImport}
+            </span>
           </span>
         </span>
       </p>
       <p>
-        <button
-          className="button"
-          onClick={readJson}
-        >
+        <button className="button" onClick={readJson}>
           {language.import}
         </button>
       </p>
-      {
-        status &&
+      {status && (
         <p>
           <span className={styles.settingsOptionsFeedback}>{status}</span>
         </p>
-      }
+      )}
       <img src="/assets/rule-confetti-brown.svg" alt="Rule Confetti Brow" />
-      <h2>{language.removeContent} ({language.daaanger})</h2>
+      <h2>
+        {language.removeContent} ({language.daaanger})
+      </h2>
       <p>
-        {
-          reseted.tasks &&
-          <>
-            {language.tasksReseted}
-          </>
-        }
-        {
-          !reseted.tasks &&
+        {reseted.tasks && <>{language.tasksReseted}</>}
+        {!reseted.tasks && (
           <button
             className="button buttonDanger"
             onClick={() => {
               setReseted({ ...reseted, tasks: true });
-              localStorage.removeItem('tasks');
+              localStorage.removeItem("tasks");
             }}
           >
             {language.resetMyTasks}
           </button>
-        }
+        )}
       </p>
       <p>
-        {
-          reseted.bugs &&
-          <>{language.bugsReseted}</>
-        }
-        {
-          !reseted.bugs &&
+        {reseted.bugs && <>{language.bugsReseted}</>}
+        {!reseted.bugs && (
           <button
             className="button buttonDanger"
             onClick={() => {
               setReseted({ ...reseted, bugs: true });
-              localStorage.removeItem('bugs');
+              localStorage.removeItem("bugs");
             }}
           >
             {language.uncheckBugs}
           </button>
-        }
+        )}
       </p>
       <p>
-        {
-          reseted.fishes &&
-          <>{language.fishesReseted}</>
-        }
-        {
-          !reseted.fishes &&
+        {reseted.fishes && <>{language.fishesReseted}</>}
+        {!reseted.fishes && (
           <button
             className="button buttonDanger"
             onClick={() => {
               setReseted({ ...reseted, fishes: true });
-              localStorage.removeItem('fishes');
+              localStorage.removeItem("fishes");
             }}
           >
             {language.uncheckFishes}
           </button>
-        }
+        )}
       </p>
       <p>
-        {
-          reseted.fossils &&
-          <>{language.fossilsReseted}</>
-        }
-        {
-          !reseted.fossils &&
+        {reseted.fossils && <>{language.fossilsReseted}</>}
+        {!reseted.fossils && (
           <button
             className="button buttonDanger"
             onClick={() => {
               setReseted({ ...reseted, fossils: true });
-              localStorage.removeItem('fossils');
+              localStorage.removeItem("fossils");
             }}
           >
             {language.uncheckFossils}
           </button>
-        }
+        )}
       </p>
       <p>
         <button
           className="button buttonDanger"
           onClick={() => {
-            setReseted({ tasks: true, bugs: true, fishes: true, fossils: true });
+            setReseted({
+              tasks: true,
+              bugs: true,
+              fishes: true,
+              fossils: true,
+            });
             localStorage.clear();
           }}
         >
@@ -227,6 +212,10 @@ function SettingsOptions({ language, setSelectedLanguage }) {
         <a href="https://instagr.am/fotografolixo">Dio</a>,{" "}
         <a href="https://twitter.com/vavomr">Gus</a> &{" "}
         <a href="https://twitter.com/filipekiss">Kiss</a>
+      </p>
+      <p>
+        {language.twitterBody}{" "}
+        <a href="https://twitter.com/NookWorldBR">@NookWorldBR</a>
       </p>
     </nav>
   );
