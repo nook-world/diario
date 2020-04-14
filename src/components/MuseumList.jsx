@@ -21,7 +21,9 @@ function MuseumList({ language, type }) {
   const museumItems = {
     bugs,
     fishes,
-    fossils: fossils.filter((fossil) => fossil.show),
+    fossils: fossils
+      .filter((fossil) => fossil.show)
+      .sort((a, b) => a.name.localeCompare(b.name)),
   };
 
   useEffect(() => {
