@@ -12,7 +12,7 @@
   "author": "Diogo Fernandes",
   "license": "ISC",
   "dependencies": {
-    "@nook-world/data": "^0.2.6",
+    "@nook-world/data": "^0.2.9",
     "fathom-client": "^2.0.3",
     "next": "^9.3.4",
     "next-pwa": "^2.3.3",
