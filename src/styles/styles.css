@@ -55,19 +55,20 @@ h1 {
   background-repeat: no-repeat;
 }
 .layout {
-  padding-top: calc(env(safe-area-inset-top) - 1.3em);
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  min-height: calc(100vh - 75px); /* height - menu */
   border-radius: 10px;
   padding-bottom: 2em;
+  padding-top: calc(env(safe-area-inset-top) - 1.3em);
+  box-sizing: border-box;
 }
 a.button {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  padding: 0 .4em;
+  padding: 0 .6em;
   height: 2.75em;
 }
 .button {

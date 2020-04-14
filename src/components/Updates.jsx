@@ -1,4 +1,8 @@
 import React from "react";
+import Link from "next/link";
+
+import ArrowLeft from './icons/ArrowLeft';
+
 import styles from "../styles/components/Updates.module.css";
 
 const replaceMarkdownLink = (str) => {
@@ -11,8 +15,20 @@ function NoUpdates({ language }) {
   return <h4>{language.noUpdatesCopy}</h4>;
 }
 
-function Container({ children }) {
-  return <section className={styles.updatesContainer}>{children}</section>;
+function Container({ children, language }) {
+  return (
+    <section className={styles.updatesContainer}>
+      <p>
+        <Link href="/settings">
+          <a className="button">
+            <ArrowLeft />
+            {language.backToSettings}
+          </a>
+        </Link>
+      </p>
+      {children}
+    </section>
+  );
 }
 
 function UpdateItem({ update, locale }) {
@@ -35,13 +51,13 @@ function Updates({ language, setSelectedLanguage, updates }) {
   const currentLanguageUpdates = updates[language.selectedLanguage] || [];
   if (currentLanguageUpdates.length < 1) {
     return (
-      <Container>
+      <Container language={language}>
         <NoUpdates language={language} />
       </Container>
     );
   }
   return (
-    <Container>
+    <Container language={language}>
       {currentLanguageUpdates.map((updateItem, key) => (
         <UpdateItem key={key} update={updateItem} locale={language.locale} />
       ))}

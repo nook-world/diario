@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link"
+
+import ArrowRight from './icons/ArrowRight';
+import DisplayOptions from "./DisplayOptions";
+
 import styles from "../styles/components/SettingsOptions.module.css";
 
-import DisplayOptions from "./DisplayOptions";
 
 function SettingsOptions({ language, setSelectedLanguage }) {
   const [status, setStatus] = useState("");
@@ -69,6 +73,14 @@ function SettingsOptions({ language, setSelectedLanguage }) {
 
   return (
     <nav className={styles.settingsOptions}>
+      <p>
+        <Link href="/settings/updates">
+          <a className="button">
+            {language.seeLatestUpdates}
+            <ArrowRight />
+          </a>
+        </Link>
+      </p>
       <h2>{language.language}</h2>
       <p>{language.chooseTheDesiredLanguage}</p>
       <p>
