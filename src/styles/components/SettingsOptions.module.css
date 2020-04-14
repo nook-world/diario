@@ -12,26 +12,26 @@
   border-radius: 30px;
 }
 .settingsOptionsChangeLanguage {
-  margin: .5em;
+  margin: 0.5em;
   border: none;
   padding: 0;
   border-radius: 30px;
   background: #fff;
-  padding: .2em 1em .8em;
+  padding: 0.2em 1em 0.8em;
   text-align: center;
   font-size: 1em;
   font-family: Quicksand;
   color: var(--text-color);
   cursor: pointer;
-  transition: background-color .2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
 }
 .settingsOptionsChangeLanguage:hover {
-  background:rgba(255, 255, 255, .5);
+  background: rgba(255, 255, 255, 0.5);
 }
 .settingsOptionsChangeLanguageSelected,
 .settingsOptionsChangeLanguageSelected:hover {
   pointer-events: none;
-  background: #FACB61
+  background: #facb61;
 }
 .settingsOptionsFlag {
   display: block;

@@ -1,5 +1,6 @@
 {
   "selectedLanguage": "pt",
+  "locale": "pt-br",
   "of": "de",
   "daily": "Diário",
   "museum": "Museu",
@@ -68,6 +69,10 @@
   "creditsTitle": "Créditos",
   "creditsBody": "Feito com ♥️ por",
   "twitterBody": "Você pode nos seguir pra saber das novidades em",
+  "updatesTitle": "Atualizações",
+  "noUpdatesCopy": "Não encontramos nenhuma atualização. Tente novamente mais tarde.",
+  "backToSettings": "← Voltar para as Configurações",
+  "seeLatestUpdates": "Leia sobre as últimas atualizações →",
   "display": "Visualização",
   "chooseWhatYouWantToSeeInTheMenu": "Escolha o que quer enxergar no menu",
   "howCanISeeTheBugsAndFishesIVeCaptured": "Como posso ver os insetos e peixes que já peguei",

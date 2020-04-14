@@ -94,9 +94,7 @@ function SettingsOptions({ language, setSelectedLanguage }) {
         })}
       </p>
 
-      <DisplayOptions
-        language={language}
-      />
+      <DisplayOptions language={language} />
 
       <h2>{language.backupData}</h2>
       <p>{language.getMyTasksAndMilestonesToUseInOtherPlace}</p>

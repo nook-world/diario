@@ -1,5 +1,6 @@
 {
   "selectedLanguage": "en",
+  "locale": "en-US",
   "of": "of",
   "daily": "Daily",
   "museum": "Museum",
@@ -68,6 +69,10 @@
   "creditsTitle": "Credits",
   "creditsBody": "Made with ♥️ by",
   "twitterBody": "You can follow us to hear the latest news on",
+  "updatesTitle": "Updates",
+  "noUpdatesCopy": "We haven't found any updates. Check back later.",
+  "backToSettings": "← Back to Settings",
+  "seeLatestUpdates": "See latest updates →",
   "display": "Display",
   "chooseWhatYouWantToSeeInTheMenu": "Choose what you want to see in the menu",
   "howCanISeeTheBugsAndFishesIVeCaptured": "How can I see the bugs and fishes I've captured",

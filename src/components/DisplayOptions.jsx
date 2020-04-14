@@ -2,7 +2,7 @@ import React from "react";
 
 import { useAppContext } from "../hooks/appContext";
 
-import styles from '../styles/components/DisplayOptions.module.css';
+import styles from "../styles/components/DisplayOptions.module.css";
 
 function DisplayOptions({ language }) {
   const { menuItems, setMenuItems } = useAppContext();
