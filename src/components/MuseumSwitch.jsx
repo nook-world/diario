@@ -1,6 +1,7 @@
 import React from 'react';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 
+import { useAppContext } from '../hooks/appContext';
 import Bugs from './icons/Bugs';
 import Fishes from './icons/Fishes';
 import Fossils from './icons/Fossils';
@@ -8,6 +9,9 @@ import Fossils from './icons/Fossils';
 import styles from '../styles/components/MuseumSwitch.module.css';
 
 function MuseumSwitch({ language, active }) {
+  const { menuItems, setMenuItems } = useAppContext();
+  const router = useRouter();
+
   const switchItems = [
     {
       label: language.bugs,
@@ -29,6 +33,22 @@ function MuseumSwitch({ language, active }) {
     },
   ];
 
+  function saveMuseumPosition(e, href) {
+    e.preventDefault();
+
+    router.push(href);
+
+    const state = [...menuItems];
+
+    state.map(item => {
+      if (item.rootPath === 'museum') {
+        item.path = href;
+      }
+    });
+
+    setMenuItems(state);
+  }
+
   return (
     <div className={ styles.museumSwitch }>
       {
@@ -37,14 +57,15 @@ function MuseumSwitch({ language, active }) {
           if (active === switchItem.type) classes.push(styles.museumSwitchButtonActive);
 
           return (
-              <Link href={ switchItem.path } key={ `museum-switch-${ switchItem.type }` }>
-                <a
-                  className={ classes.join(' ') }
-                >
-                  { switchItem.icon }
-                  { switchItem.label }
-                </a>
-              </Link>
+              <a
+                key={ `museum-switch-${ switchItem.type }` }
+                href={ switchItem.path }
+                className={ classes.join(' ') }
+                onClick={ (e) => saveMuseumPosition(e, switchItem.path) }
+              >
+                { switchItem.icon }
+                { switchItem.label }
+              </a>
             );
           })
       }

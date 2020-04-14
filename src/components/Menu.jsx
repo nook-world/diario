@@ -2,43 +2,20 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import Daily from './icons/Daily';
-import Museum from './icons/Museum';
-import Case from './icons/Case';
-
 import styles from '../styles/components/Menu.module.css';
 
-function Menu({ language }) {
+function Menu({menuItems}) {
   const route = useRouter();
 
   const [, menuActivated] = route.pathname.split("/");
-
-  const menuItems = [
-    {
-      label: 'daily',
-      Icon: Daily,
-      path: '/',
-      rootPath: ''
-    },
-    {
-      label: 'museum',
-      Icon: Museum,
-      path: '/museum/bugs',
-      rootPath: 'museum'
-    },
-    {
-      label: 'settings',
-      Icon: Case,
-      path: '/settings',
-      rootPath: 'settings'
-    }
-  ];
 
   return (
     <nav className={styles.menu}>
       {
         menuItems.map((menuItem, index) => {
           const linkClasses = [styles.menuItem];
+          if (!menuItem.visible) return null;
+
           if (menuActivated === menuItem.rootPath) {
             linkClasses.push(styles.menuActive);
           }
@@ -53,7 +30,7 @@ function Menu({ language }) {
               >
                 <menuItem.Icon className={styles.menuIcon} />
                 <span className={styles.menuLabel}>
-                  {language[menuItem.label]}
+                  {menuItem.label}
                 </span>
               </a>
             </Link>
