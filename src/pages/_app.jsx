@@ -27,7 +27,7 @@ function CustomApp({ Component, pageProps }) {
         setSelectedLanguage={setSelectedLanguage}
         setMenuItems={setMenuItems}
       />
-      <Menu menuItems={menuItems} />
+      <Menu language={language} menuItems={menuItems} />
     </ContextProvider>
   );
 }

@@ -7,21 +7,21 @@ import Case from '../components/icons/Case';
 function useMenu(language) {
   const [ menuItems, setMenuItems ] = useState([
     {
-      label: language.daily,
+      label: 'daily',
       Icon: Daily,
       path: '/',
       rootPath: '',
       visible: true
     },
     {
-      label: language.museum,
+      label: 'museum',
       Icon: Museum,
       path: '/museum/bugs',
       rootPath: 'museum',
       visible: true
     },
     {
-      label: language.settings,
+      label: 'settings',
       Icon: Case,
       path: '/settings',
       rootPath: 'settings',

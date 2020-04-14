@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 import styles from '../styles/components/Menu.module.css';
 
-function Menu({menuItems}) {
+function Menu({language, menuItems}) {
   const route = useRouter();
 
   const [, menuActivated] = route.pathname.split("/");
@@ -30,7 +30,7 @@ function Menu({menuItems}) {
               >
                 <menuItem.Icon className={styles.menuIcon} />
                 <span className={styles.menuLabel}>
-                  {menuItem.label}
+                  {language[menuItem.label]}
                 </span>
               </a>
             </Link>
