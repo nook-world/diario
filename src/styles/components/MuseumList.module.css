@@ -50,3 +50,13 @@
   height: 64px;
   vertical-align: middle;
 }
+.museumListArticle {
+  padding-right: 1em;
+  padding-left: 1em;
+}
+.museumListArticleIcon {
+  vertical-align: middle;
+}
+.museumListArticleImage {
+  max-width: 100%;
+}

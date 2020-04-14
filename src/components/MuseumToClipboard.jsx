@@ -4,7 +4,7 @@ function MuseumToClipboard({ language, type, list, selected }) {
   const typeEmoji = {
     bugs: "🐜",
     fishes: "🐟",
-    fossils: "🦴",
+    fossils: "🦕",
   }[type];
 
   const missingList = list

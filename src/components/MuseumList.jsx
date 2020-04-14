@@ -4,6 +4,7 @@ import bugs from "@nook-world/data/bugs";
 import fishes from "@nook-world/data/fishes";
 import fossils from "@nook-world/data/fossils";
 
+import Museum from './icons/Museum';
 import MuseumHeader from "./MuseumHeader";
 import MuseumSearch from "./MuseumSearch";
 import MuseumToClipboard from "./MuseumToClipboard";
@@ -110,6 +111,45 @@ function MuseumList({ language, type }) {
         selected={selectedMuseumItem[type]}
         list={museumItems[type]}
       />
+      {
+        type !== 'fossils' &&
+        <article className={ styles.museumListArticle }>
+          <h1>{ language.howCanISeeTheBugsAndFishesIVeCaptured }?</h1>
+          <p>{ language.youCanCheckOnYourNookPhoneInTheOption } <strong>Critterpedia</strong></p>
+          <img
+            className={ styles.museumListArticleImage }
+            src="/assets/critterpedia.png"
+            alt="Critterpedia"
+          />
+
+          <h2>{ language.howCanISeeWhichCreaturesIAlreadyDonatedToTheMuseum }?</h2>
+          <p>{ language.onTheCritterpediaAppYouWillSeeAnIconFrom } <strong><Museum className={ styles.museumListArticleIcon } /> Blathers</strong> { language.onTheCreaturesYouAlreadyDonated}</p>
+        </article>
+      }
+      {
+        type === 'fossils' &&
+        <article className={ styles.museumListArticle }>
+          <h1>{ language.howCanISeeTheFossilsIHave }?</h1>
+          <p>{ language.goToNookTerminalAndSelect } <strong>Nook Shopping</strong>.</p>
+          <img
+            className={ styles.museumListArticleImage }
+            src="/assets/nook-terminal.png"
+            alt="Nook Terminal"
+          />
+          <p>{ language.accessTheOption } <strong>Wallpaper, flooring and more</strong>.</p>
+          <img
+            className={ styles.museumListArticleImage }
+            src="/assets/nook-shopping.png"
+            alt="Nook Shopping"
+          />
+          <p>{ language.filterTheResultsFromTheShoppingBy } <strong>{ language.fossils } </strong>.</p>
+          <img
+            className={ styles.museumListArticleImage }
+            src="/assets/nook-shopping-filter.png"
+            alt="Nook Shopping Filter"
+          />
+        </article>
+      }
     </div>
   );
 }

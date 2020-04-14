@@ -1,11 +1,22 @@
 import React from "react";
 
-export function DisplayOptions({ menuItems, className }) {
+import { useAppContext } from "../hooks/appContext";
+
+import styles from '../styles/components/DisplayOptions.module.css';
+
+function DisplayOptions({ language }) {
+  const { menuItems, setMenuItems } = useAppContext();
+
+  function updateMenu(item) {
+    const state = [...menuItems];
+    state[item].visible = !state[item].visible;
+    setMenuItems(state);
+  }
+
   return (
     <>
-      {" "}
-      <h2>Display settings</h2>
-      <p>Choose what you want to see in the menu:</p>
+      <h2>{language.display}</h2>
+      <p>{language.chooseWhatYouWantToSeeInTheMenu}:</p>
       {menuItems.map((menuItem, index) => {
         const withoutConfig = ["", "settings"];
 
@@ -16,7 +27,7 @@ export function DisplayOptions({ menuItems, className }) {
         return (
           <p
             key={`setting-option-menu-${menuItem.rootPath}`}
-            className={className}
+            className={styles.displayOptionsMenu}
           >
             <label>
               <input
@@ -25,7 +36,7 @@ export function DisplayOptions({ menuItems, className }) {
                 checked={menuItem.visible}
                 onChange={() => updateMenu(index)}
               />
-              {menuItem.label}
+              {language[menuItem.label]}
             </label>
           </p>
         );
@@ -33,3 +44,5 @@ export function DisplayOptions({ menuItems, className }) {
     </>
   );
 }
+
+export default DisplayOptions;

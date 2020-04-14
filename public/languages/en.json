@@ -67,5 +67,16 @@
   "copyCaughtItems": "Copy caught {museumType}",
   "creditsTitle": "Credits",
   "creditsBody": "Made with ♥️ by",
-  "twitterBody": "You can follow us to hear the latest news on"
+  "twitterBody": "You can follow us to hear the latest news on",
+  "display": "Display",
+  "chooseWhatYouWantToSeeInTheMenu": "Choose what you want to see in the menu",
+  "howCanISeeTheBugsAndFishesIVeCaptured": "How can I see the bugs and fishes I've captured",
+  "youCanCheckOnYourNookPhoneInTheOption": "You can check on your Nook Phone, in the option",
+  "howCanISeeWhichCreaturesIAlreadyDonatedToTheMuseum": "How can I see which creatures I already donated to the museum",
+  "onTheCritterpediaAppYouWillSeeAnIconFrom": "On the Critterpedia App, you will see an icon from",
+  "onTheCreaturesYouAlreadyDonated": "on the creatures you already donated",
+  "howCanISeeTheFossilsIHave": "How can I see the fossils I have",
+  "goToNookTerminalAndSelect": "Go to Nook Terminal and select",
+  "accessTheOption": "Access the option",
+  "filterTheResultsFromTheShoppingBy": "Filter the results from the shopping by"
 }

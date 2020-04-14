@@ -1,10 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useAppContext } from "../hooks/appContext";
 import styles from "../styles/components/SettingsOptions.module.css";
 
-{
-  /* import { DisplayOptions } from "./DisplayOptions"; */
-}
+import DisplayOptions from "./DisplayOptions";
 
 function SettingsOptions({ language, setSelectedLanguage }) {
   const [status, setStatus] = useState("");
@@ -16,7 +13,6 @@ function SettingsOptions({ language, setSelectedLanguage }) {
     fossils: false,
   });
   const inputFile = useRef(null);
-  const { menuItems, setMenuItems } = useAppContext();
 
   useEffect(() => {
     const storage = {
@@ -58,12 +54,6 @@ function SettingsOptions({ language, setSelectedLanguage }) {
     };
   }
 
-  function updateMenu(item) {
-    const state = [...menuItems];
-    state[item].visible = !state[item].visible;
-    setMenuItems(state);
-  }
-
   const languages = [
     {
       short: "pt",
@@ -103,11 +93,10 @@ function SettingsOptions({ language, setSelectedLanguage }) {
           );
         })}
       </p>
-      {/* Temporarily disabled */}
-      {/* <DisplayOptions */}
-      {/*   menuItems={menuItems} */}
-      {/*   className={styles.settingsOptionsMenuItems} */}
-      {/* /> */}
+
+      <DisplayOptions
+        language={language}
+      />
 
       <h2>{language.backupData}</h2>
       <p>{language.getMyTasksAndMilestonesToUseInOtherPlace}</p>
