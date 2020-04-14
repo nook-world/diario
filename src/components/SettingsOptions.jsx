@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
-
+import React, { useEffect, useRef, useState } from "react";
 import { useAppContext } from "../hooks/appContext";
-
 import styles from "../styles/components/SettingsOptions.module.css";
+
+{
+  /* import { DisplayOptions } from "./DisplayOptions"; */
+}
 
 function SettingsOptions({ language, setSelectedLanguage }) {
   const [status, setStatus] = useState("");
@@ -101,32 +103,11 @@ function SettingsOptions({ language, setSelectedLanguage }) {
           );
         })}
       </p>
-      <h2>Display settings</h2>
-      <p>Choose what you want to see in the menu:</p>
-      {menuItems.map((menuItem, index) => {
-        const withoutConfig = ["", "settings"];
-
-        if (withoutConfig.includes(menuItem.rootPath)) {
-          return null;
-        }
-
-        return (
-          <p
-            key={`setting-option-menu-${menuItem.rootPath}`}
-            className={styles.settingsOptionsMenuItems}
-          >
-            <label>
-              <input
-                type="checkbox"
-                className="checkbox"
-                checked={menuItem.visible}
-                onChange={() => updateMenu(index)}
-              />
-              {menuItem.label}
-            </label>
-          </p>
-        );
-      })}
+      {/* Temporarily disabled */}
+      {/* <DisplayOptions */}
+      {/*   menuItems={menuItems} */}
+      {/*   className={styles.settingsOptionsMenuItems} */}
+      {/* /> */}
 
       <h2>{language.backupData}</h2>
       <p>{language.getMyTasksAndMilestonesToUseInOtherPlace}</p>
