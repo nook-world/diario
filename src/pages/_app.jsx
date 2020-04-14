@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import { ContextProvider } from '../hooks/appContext';
-import useLanguage from '../hooks/language';
-import useAnalytics from '../hooks/analytics';
-import useMenu from '../hooks/menu';
-import Menu from '../components/Menu';
+import { ContextProvider } from "../hooks/appContext";
+import useLanguage from "../hooks/language";
+import useAnalytics from "../hooks/analytics";
+import useMenu from "../hooks/menu";
+import Menu from "../components/Menu";
 
-import '../styles/styles.css';
+import "../styles/styles.css";
 
 function CustomApp({ Component, pageProps }) {
-  const [ language, setSelectedLanguage ] = useLanguage();
-  const [ menuItems, setMenuItems ] = useMenu(language);
+  const [language, setSelectedLanguage] = useLanguage();
+  const [menuItems, setMenuItems] = useMenu(language);
 
   useAnalytics();
 

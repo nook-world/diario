@@ -1,31 +1,26 @@
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 
-function MuseumToClipboard({
-  language,
-  type,
-  list,
-  selected
-}) {
+function MuseumToClipboard({ language, type, list, selected }) {
   const typeEmoji = {
-    bugs: '🐜',
-    fishes: '🐟',
-    fossils: '🦴'
+    bugs: "🐜",
+    fishes: "🐟",
+    fossils: "🦴",
   }[type];
 
   const missingList = list
-    .filter(item => !selected.includes(item.id))
-    .map(item => `${ typeEmoji } · ${ item.name }`)
-    .join('\n');
+    .filter((item) => !selected.includes(item.id))
+    .map((item) => `${typeEmoji} · ${item.name}`)
+    .join("\n");
 
   const caughtList = list
-    .filter(item => selected.includes(item.id))
-    .map(item => `${ typeEmoji } · ${ item.name }`)
-    .join('\n');
+    .filter((item) => selected.includes(item.id))
+    .map((item) => `${typeEmoji} · ${item.name}`)
+    .join("\n");
 
   const filteredList = {
     missing: missingList,
-    caught: caughtList
-  }
+    caught: caughtList,
+  };
 
   const missing = useRef(null);
   const caught = useRef(null);
@@ -34,38 +29,37 @@ function MuseumToClipboard({
     input.current.value = filteredList[input.current.name];
     input.current.select();
     document.execCommand("copy");
-    alert('Copied');
+    alert("Copied");
   }
 
   return (
     <div className="textCenter">
-      <h2>{ language.copyToClipboard }</h2>
+      <h2>{language.copyToClipboard}</h2>
       <p>
-        <button className="button" onClick={ () => copyToClipboard(missing) }>
-          {
-            language.copyMissingItems?.replace(
-              '{museumType}',
-              language[type].toLowerCase()
-            )
-          }
+        <button className="button" onClick={() => copyToClipboard(missing)}>
+          {language.copyMissingItems?.replace(
+            "{museumType}",
+            language[type].toLowerCase()
+          )}
         </button>
       </p>
       <p>
-        <button className="button buttonSecondary" onClick={ () => copyToClipboard(caught) }>
-          {
-            language.copyCaughtItems?.replace(
-              '{museumType}',
-              language[type].toLowerCase()
-            )
-          }
+        <button
+          className="button buttonSecondary"
+          onClick={() => copyToClipboard(caught)}
+        >
+          {language.copyCaughtItems?.replace(
+            "{museumType}",
+            language[type].toLowerCase()
+          )}
         </button>
         <textarea
           name="missing"
-          ref={ missing }
-          defaultValue={ missingList }
+          ref={missing}
+          defaultValue={missingList}
           style={{
-            position: 'absolute',
-            left: '-100vw',
+            position: "absolute",
+            left: "-100vw",
             opactiy: 0,
             width: 0,
             height: 0,
@@ -75,16 +69,16 @@ function MuseumToClipboard({
 
         <textarea
           name="caught"
-          ref={ caught }
+          ref={caught}
           style={{
-            position: 'absolute',
-            left: '-100vw',
+            position: "absolute",
+            left: "-100vw",
             opactiy: 0,
             width: 0,
             height: 0,
             padding: 0,
           }}
-          defaultValue={ caughtList }
+          defaultValue={caughtList}
         />
       </p>
     </div>

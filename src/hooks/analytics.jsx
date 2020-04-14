@@ -1,6 +1,6 @@
-import * as Fathom from 'fathom-client';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import * as Fathom from "fathom-client";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 function useAnalytics() {
   const router = useRouter();
@@ -12,7 +12,7 @@ function useAnalytics() {
 
   useEffect(() => {
     Fathom.trackPageview();
-  }, [ router.route ]);
+  }, [router.route]);
 }
 
 export default useAnalytics;

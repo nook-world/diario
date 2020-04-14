@@ -1,31 +1,24 @@
-import React from 'react';
+import React from "react";
 
-import styles from '../styles/components/MuseumSearch.module.css';
+import styles from "../styles/components/MuseumSearch.module.css";
 
-function MuseumSearch({
-  language,
-  keyword,
-  setKeyword
-}) {
+function MuseumSearch({ language, keyword, setKeyword }) {
   return (
-    <div className={ styles.museumSearch }>
+    <div className={styles.museumSearch}>
       <label>
-        { language.filterByName }:
-        <span className={ styles.museumSearchForm }>
+        {language.filterByName}:
+        <span className={styles.museumSearchForm}>
           <input
-            className={ `input ${ styles.museumSearchInput }`}
+            className={`input ${styles.museumSearchInput}`}
             type="search"
-            placeholder={ language.typeYourSearchHere }
-            value={ keyword }
-            onChange={ (e) => setKeyword(e.currentTarget.value) }
+            placeholder={language.typeYourSearchHere}
+            value={keyword}
+            onChange={(e) => setKeyword(e.currentTarget.value)}
           />
-          <button
-            className="button"
-            onClick={ () => setKeyword('') }
-          >
-            { language.clear }
+          <button className="button" onClick={() => setKeyword("")}>
+            {language.clear}
           </button>
-        </span>          
+        </span>
       </label>
     </div>
   );

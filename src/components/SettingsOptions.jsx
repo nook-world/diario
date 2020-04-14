@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-import { useAppContext } from '../hooks/appContext';
+import { useAppContext } from "../hooks/appContext";
 
 import styles from "../styles/components/SettingsOptions.module.css";
 
@@ -57,7 +57,7 @@ function SettingsOptions({ language, setSelectedLanguage }) {
   }
 
   function updateMenu(item) {
-    const state = [ ...menuItems ];
+    const state = [...menuItems];
     state[item].visible = !state[item].visible;
     setMenuItems(state);
   }
@@ -103,33 +103,31 @@ function SettingsOptions({ language, setSelectedLanguage }) {
       </p>
       <h2>Display settings</h2>
       <p>Choose what you want to see in the menu:</p>
-      {
-        menuItems.map((menuItem, index) => {
-          const withoutConfig = ['', 'settings'];
+      {menuItems.map((menuItem, index) => {
+        const withoutConfig = ["", "settings"];
 
-          if (withoutConfig.includes(menuItem.rootPath)) {
-            return null;
-          }
+        if (withoutConfig.includes(menuItem.rootPath)) {
+          return null;
+        }
 
-          return (
-            <p
-              key={ `setting-option-menu-${ menuItem.rootPath }` }
-              className={ styles.settingsOptionsMenuItems }
-            >
-              <label>
-                <input
-                  type="checkbox"
-                  className="checkbox"
-                  checked={ menuItem.visible }
-                  onChange={ () => updateMenu(index) }
-                />
-                { menuItem.label }
-              </label>
-            </p>
-          );
-        })
-      }
-       
+        return (
+          <p
+            key={`setting-option-menu-${menuItem.rootPath}`}
+            className={styles.settingsOptionsMenuItems}
+          >
+            <label>
+              <input
+                type="checkbox"
+                className="checkbox"
+                checked={menuItem.visible}
+                onChange={() => updateMenu(index)}
+              />
+              {menuItem.label}
+            </label>
+          </p>
+        );
+      })}
+
       <h2>{language.backupData}</h2>
       <p>{language.getMyTasksAndMilestonesToUseInOtherPlace}</p>
       <p>

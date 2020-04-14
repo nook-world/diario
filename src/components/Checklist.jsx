@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-import CurrentDate from './CurrentDate';
-import Percentage from './Percentage';
+import CurrentDate from "./CurrentDate";
+import Percentage from "./Percentage";
 
-import styles from '../styles/components/Checklist.module.css';
+import styles from "../styles/components/Checklist.module.css";
 
 function Checklist({ language }) {
-  const storageName = 'tasks';
+  const storageName = "tasks";
   const tasks = [
     language.checkYourMail,
     language.talkToAllVillagers,
@@ -26,7 +26,7 @@ function Checklist({ language }) {
     language.goClamHunting,
     language.plantFlowers,
     language.plantTrees,
-    language.goIntoVillagersHousesForDIYRecipes
+    language.goIntoVillagersHousesForDIYRecipes,
   ];
 
   const [completedTasks, setCompletedTasks] = useState([]);
@@ -47,56 +47,51 @@ function Checklist({ language }) {
     let state = [...completedTasks];
 
     if (state.includes(task)) {
-      state = state.filter(item => item !== task);
+      state = state.filter((item) => item !== task);
     } else {
       state.push(task);
     }
-    localStorage.setItem(storageName, JSON.stringify(state))
+    localStorage.setItem(storageName, JSON.stringify(state));
     setCompletedTasks(state);
   }
 
   return (
-    <div className={ styles.checklist }>
-      <div className={ styles.checklistHeader }>
+    <div className={styles.checklist}>
+      <div className={styles.checklistHeader}>
         <Percentage
-          language={ language }
-          current={ completedTasks.length }
-          total={ tasks.length }
+          language={language}
+          current={completedTasks.length}
+          total={tasks.length}
         />
-        <CurrentDate language={ language } />
+        <CurrentDate language={language} />
       </div>
-      {
-        !!tasks.length &&
+      {!!tasks.length &&
         tasks.map((task, index) => (
-          <p key={ `task-${ index }`} className={ styles.checklistItem }>
-            <label className={ styles.checklistLabel }>
+          <p key={`task-${index}`} className={styles.checklistItem}>
+            <label className={styles.checklistLabel}>
               <input
                 type="checkbox"
-                className={ `checkbox ${ styles.checklistCheckbox }` }
-                checked={ completedTasks.includes(index) }
-                onChange={ () => updateTask(index) }
+                className={`checkbox ${styles.checklistCheckbox}`}
+                checked={completedTasks.includes(index)}
+                onChange={() => updateTask(index)}
               />
-              <span className={ styles.checklistText }>
-                { task }
-              </span>
+              <span className={styles.checklistText}>{task}</span>
             </label>
           </p>
-        ))
-      }
-      {
-        !!completedTasks.length &&
+        ))}
+      {!!completedTasks.length && (
         <p className="textCenter">
           <button
             className="button buttonDanger"
-            onClick={ () => {
-              localStorage.removeItem('tasks');
+            onClick={() => {
+              localStorage.removeItem("tasks");
               setCompletedTasks([]);
-            } }
+            }}
           >
-            { language.resetMyTasks }
+            {language.resetMyTasks}
           </button>
         </p>
-      }
+      )}
     </div>
   );
 }
