@@ -4,6 +4,7 @@ import Layout from "../../components/Layout";
 import SettingsOptions from "../../components/SettingsOptions";
 
 import styles from "../../styles/pages/settings.module.css";
+import NookIcon from "../../components/icons/Nook.jsx";
 
 function Page({ language, setSelectedLanguage }) {
   return (
@@ -13,6 +14,9 @@ function Page({ language, setSelectedLanguage }) {
         language={language}
         setSelectedLanguage={setSelectedLanguage}
       />
+      <footer>
+        <NookIcon className={styles.nookIcon} />
+      </footer>
     </Layout>
   );
 }
