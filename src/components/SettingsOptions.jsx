@@ -118,7 +118,7 @@ function SettingsOptions({ language, setSelectedLanguage }) {
       <p>
         {language.getTheDataYouAlreadyExported}
         <br />
-        <span className="fileArea">
+        <label className="fileArea">
           <input
             type="file"
             ref={inputFile}
@@ -133,7 +133,7 @@ function SettingsOptions({ language, setSelectedLanguage }) {
               {language.clickToSelectAFileToImport}
             </span>
           </span>
-        </span>
+        </label>
       </p>
       <p>
         <button className="button" onClick={readJson}>

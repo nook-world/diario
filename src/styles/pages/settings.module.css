@@ -5,12 +5,3 @@
   background-size: 100% calc(env(safe-area-inset-top, 0) * 4 + 780px);
   background-position: top;
 }
-
-.updatesButton {
-  display: inline-block;
-  margin: 20px auto;
-}
-
-.nookIcon {
-  margin: 20px auto;
-}

@@ -72,11 +72,11 @@ a.button {
   height: 2.75em;
 }
 .button {
-  background: #7B8FCE;
+  background: #2E93DA;
   font-family: Quicksand;
   border-radius: 15px;
   height: 3em;
-  border: 2px solid #7B8FCE;
+  border: 2px solid #2E93DA;
   font-size: 1em;
   color: #FFF;
   cursor: pointer;
@@ -87,8 +87,8 @@ a.button {
   color: var(--text-color);
 }
 .buttonDanger {
-  background: tomato;
-  border-color: tomato;
+  background: #E62D2B;
+  border-color: #E62D2B;
 }
 .input {
   font-size: 1em;

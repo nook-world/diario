@@ -53,33 +53,61 @@ function MuseumToClipboard({ language, type, list, selected }) {
             language[type].toLowerCase()
           )}
         </button>
-        <textarea
-          name="missing"
-          ref={missing}
-          defaultValue={missingList}
-          style={{
-            position: "absolute",
-            left: "-100vw",
-            opactiy: 0,
-            width: 0,
-            height: 0,
-            padding: 0,
-          }}
+        <label style={{
+          position: "absolute",
+          left: "-100vw",
+          width: 0,
+          height: 0,
+          padding: 0
+        }}>
+          {
+            language.copyMissingItems?.replace(
+              "{museumType}",
+              language[type].toLowerCase()
+            )
+          }
+          <textarea
+            name="missing"
+            ref={missing}
+            defaultValue={missingList}
+            style={{
+              position: "absolute",
+              left: "-100vw",
+              width: 0,
+              height: 0,
+              padding: 0,
+              fontSize: '1em'
+            }}
         />
+        </label>
 
-        <textarea
-          name="caught"
-          ref={caught}
-          style={{
-            position: "absolute",
-            left: "-100vw",
-            opactiy: 0,
-            width: 0,
-            height: 0,
-            padding: 0,
-          }}
-          defaultValue={caughtList}
-        />
+        <label style={{
+          position: "absolute",
+          left: "-100vw",
+          opactiy: 0,
+          width: 0,
+          height: 0,
+          padding: 0
+        }}>
+          {language.copyCaughtItems?.replace(
+            "{museumType}",
+            language[type].toLowerCase()
+          )}
+          <textarea
+            name="caught"
+            ref={caught}
+            style={{
+              position: "absolute",
+              left: "-100vw",
+              opactiy: 0,
+              width: 0,
+              height: 0,
+              padding: 0,
+              fontSize: '1em'
+            }}
+            defaultValue={caughtList}
+          />
+        </label>
       </p>
     </div>
   );

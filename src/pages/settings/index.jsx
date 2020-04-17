@@ -15,7 +15,7 @@ function Page({ language, setSelectedLanguage }) {
         setSelectedLanguage={setSelectedLanguage}
       />
       <footer>
-        <NookIcon className={styles.nookIcon} />
+        <NookIcon />
       </footer>
     </Layout>
   );

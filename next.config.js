@@ -6,7 +6,7 @@ const getEnv = (name, fallback = '') => {
 
 module.exports = withPWA({
   env: {
-    FATHOM_URL: getEnv('FATHOM_URL', '//isabelle.nook.world/tracker.js'),
+    FATHOM_URL: getEnv('FATHOM_URL', '//isabelle.nook.world/main.js'),
     FATHOM_SITE_ID: getEnv('FATHOM_SITE_ID', 'OSVBX')
   },
   pwa: {

@@ -1,9 +1,8 @@
 import React from "react";
 
-export default function NookWorld({ className }) {
+export default function NookWorld() {
   return (
     <a
-      className={className}
       style={{ textDecoration: "none", display: "inline-block" }}
       href="https://nook.world"
     >
@@ -25,12 +24,13 @@ export default function NookWorld({ className }) {
           fill="currentColor"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M141.051 25C32.2506 25 7.71725 103 9.05059 142C9.05059 175.798 56.0868 193.842 79.0506 169C127.602 126.773 155.075 127.328 204.5 169C230.604 189.958 271.175 177.94 274.051 142C275.051 103 249.851 25 141.051 25ZM205.057 103C205.057 116.807 198.552 128 190.528 128C182.505 128 176 116.807 176 103C176 89.1929 182.505 78 190.528 78C198.552 78 205.057 89.1929 205.057 103ZM93.5283 128C101.552 128 108.057 116.807 108.057 103C108.057 89.1929 101.552 78 93.5283 78C85.5045 78 79 89.1929 79 103C79 116.807 85.5045 128 93.5283 128Z"
           fill="currentColor"
         />
       </svg>
+      <br />
       nook.world
     </a>
   );

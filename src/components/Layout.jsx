@@ -28,7 +28,7 @@ function Layout({ children, background }) {
         <meta name="theme-color" content="#5bbad5" />
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+          content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"
         />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 
@@ -57,7 +57,7 @@ function Layout({ children, background }) {
         />
         <link rel="shortcut icon" href={`/favicon-32x32.png?v=${version}`} />
 
-        <link
+        {/* <link
           rel="apple-touch-startup-image"
           href="/splash/640x1136-splash.png"
           media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
@@ -91,7 +91,7 @@ function Layout({ children, background }) {
           rel="apple-touch-startup-image"
           href="/splash/2048x2732-splash.png"
           media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)"
-        />
+        /> */}
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://diario.nook.world" />
