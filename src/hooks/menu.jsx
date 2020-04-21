@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import Daily from "../components/icons/Daily";
 import Museum from "../components/icons/Museum";
+import Song from "../components/icons/Song";
 import Case from "../components/icons/Case";
 
 function useMenu(language) {
@@ -18,6 +19,13 @@ function useMenu(language) {
       Icon: Museum,
       path: "/museum/bugs",
       rootPath: "museum",
+      visible: true,
+    },
+    {
+      label: "songs",
+      Icon: Song,
+      path: "/songs",
+      rootPath: "songs",
       visible: true,
     },
     {

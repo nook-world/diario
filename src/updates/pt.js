@@ -1,5 +1,11 @@
 export default [
   {
+    date: "2020-04-21",
+    title: "Lista de Músicas do K.K. Slider",
+    message:
+      "Adicionamos todas as 95 músicas do K.K. Slider disponíveis em New Horizons, incluindo todas as capas. Ainda está incompleto (por exemplo, não temos filtros e nem os botões pra copiar a lista de músicas que faltam), mas decidimos liberar essa atualização um pouquinho antes como forma de agradecimento à todos que responderam nosso feedback. Se você ainda não respondeu e puder responder, você pode ajudar a definir quais serão as próximas funcionalidades do Diário Nook World. Basta clicar [aqui](https://forms.gle/f1CtvEEtxgqSbq6D7) e responder o formulário. A pesquisa é completamente anônima. A equipe Nook World agradece a sua colaboração.",
+  },
+  {
     date: "2020-04-14",
     title: "Lista de Fósseis Atualizada",
     message:

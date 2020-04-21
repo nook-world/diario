@@ -1,0 +1,16 @@
+.layout {
+  overflow: hidden;
+}
+.layout:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background: #5bd1f5 url("/assets/waves.svg");
+  background-size: 100% 33%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}

@@ -1,13 +1,13 @@
 import React from "react";
 import Link from "next/link";
 
-import ArrowLeft from './icons/ArrowLeft';
+import ArrowLeft from "./icons/ArrowLeft";
 
 import styles from "../styles/components/Updates.module.css";
 
 const replaceMarkdownLink = (str) => {
   const regex = /\[([^\]]+)\]\(([^\)]+)\)/gm;
-  const subst = `<a href="$2">$1</a>`;
+  const subst = `<a target="_blank" rel="noopener" href="$2">$1</a>`;
   return str.replace(regex, subst);
 };
 

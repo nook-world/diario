@@ -1,5 +1,11 @@
 export default [
   {
+    date: "2020-04-21",
+    title: "K.K. Slider songlist",
+    message:
+      "All the 95 songs available in New Horizons have been added, including all covers. Filtering and copying missing songs will be coming in a future update.",
+  },
+  {
     date: "2020-04-14",
     title: "Fossils list updated",
     message:
