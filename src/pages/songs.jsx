@@ -1,7 +1,7 @@
 import React from "react";
 
 import Layout from "../components/Layout";
-import Songs from "../components/Songs/Songs";
+import Songs from "../components/songs/Songs";
 
 import styles from "../styles/pages/songs.module.css";
 
