@@ -38,7 +38,7 @@ function useLanguage() {
       signal = controller.signal;
 
       const languageData = await fetch(
-        `/languages/${selectedLanguage}.json?v=4`,
+        `/languages/${selectedLanguage}.json?v=5`,
         { signal }
       )
         .then((res) => res.json())

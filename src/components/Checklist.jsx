@@ -27,6 +27,7 @@ function Checklist({ language }) {
     language.plantFlowers,
     language.plantTrees,
     language.goIntoVillagersHousesForDIYRecipes,
+    language.checkNookTerminalToGainNookMiles,
   ];
 
   const [completedTasks, setCompletedTasks] = useState([]);
