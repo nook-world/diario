@@ -1,7 +1,7 @@
 .settingsOptions {
   width: calc(100% - 3em);
   max-width: 600px;
-  margin-bottom: auto;
+  margin: 3em auto 0;
   text-align: center;
 }
 .settingsOptionsFeedback {

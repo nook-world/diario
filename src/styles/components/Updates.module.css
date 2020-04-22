@@ -1,7 +1,7 @@
 .updatesContainer {
   width: 100%;
   max-width: 600px;
-  margin-bottom: auto;
+  margin: 3em auto 0;
   text-align: center;
 }
 .updateItem {
@@ -20,7 +20,7 @@
   position: absolute;
   right: -2px;
   float: right;
-  background-color: #E62D2B;
+  background-color: #e62d2b;
   color: #fff;
   padding: 5px;
   border-radius: 10px;

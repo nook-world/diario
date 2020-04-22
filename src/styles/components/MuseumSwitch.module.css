@@ -1,8 +1,9 @@
 .museumSwitch {
   display: inline-flex;
-  background: #FFF;
-  padding: .2em;
+  background: #fff;
+  padding: 0.2em;
   border-radius: 50px;
+  margin-bottom: 1em;
 }
 .museumSwitchButton {
   display: flex;
@@ -12,14 +13,14 @@
   width: 5em;
   height: 5em;
   border-radius: 50%;
-  color: #FACB61;
-  font-size: .8em;
+  color: #facb61;
+  font-size: 0.8em;
   font-family: Quicksand;
-  margin: .1em;
+  margin: 0.1em;
   vertical-align: middle;
   text-decoration: none;
 }
 .museumSwitchButtonActive {
-  background: #FACB61;
-  color: #FFF;
+  background: #facb61;
+  color: #fff;
 }

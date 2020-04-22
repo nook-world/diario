@@ -14,7 +14,7 @@ function Page({ language, setSelectedLanguage }) {
         language={language}
         setSelectedLanguage={setSelectedLanguage}
       />
-      <footer>
+      <footer className="textCenter">
         <NookIcon />
       </footer>
     </Layout>

@@ -10,10 +10,10 @@ function MuseumHeader({ language, type, currentItems, totalItems }) {
   return (
     <div className={styles.museumHeader}>
       <MuseumSwitch language={language} active={type} />
-      <div className={styles.museumHeaderInfo}>
-        <CurrentDate language={language} />
+      <CurrentDate language={language} />
+      <p>
         <Percentage current={currentItems} total={totalItems} />
-      </div>
+      </p>
     </div>
   );
 }

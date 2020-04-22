@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import songs from "@nook-world/data/songs";
 
 import MuseumSearch from "../MuseumSearch";
+import CurrentDate from "../CurrentDate";
+import Percentage from "../Percentage";
 
 import styles from "./Songs.module.css";
 
@@ -36,6 +38,12 @@ function Songs({ language }) {
 
   return (
     <>
+      <div className="textCenter">
+        <CurrentDate language={language} />
+        <p>
+          <Percentage current={selectedSongs.length} total={songs.length} />
+        </p>
+      </div>
       <MuseumSearch
         language={language}
         keyword={keyword}
