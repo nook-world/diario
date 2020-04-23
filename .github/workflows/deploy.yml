@@ -19,7 +19,7 @@ jobs:
       - name: 📦 Install Dependencies
         run: |
           npm config set //npm.pkg.github.com/:_authToken ${{ secrets.NPM_TOKEN_GH }} --userconfig .npmrc
-          npm install
+          npm ci
 
       - name: 🏗  Build Application
         run: |

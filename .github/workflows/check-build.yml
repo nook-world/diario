@@ -1,0 +1,29 @@
+name: check build status
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test-build:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: ⌨️ Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: 📦 Install Dependencies
+        run: |
+          npm config set //npm.pkg.github.com/:_authToken ${{ secrets.NPM_TOKEN_GH }} --userconfig .npmrc
+          npm ci
+
+      - name: 🏗  Build Application
+        run: |
+          echo "Using Analytics ID: $FATHOM_SITE_ID"
+          npm run build
+        env:
+          FATHOM_SITE_ID: ${{ secrets.FATHOM_SITE_ID }}
