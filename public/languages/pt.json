@@ -85,5 +85,7 @@
   "goToNookTerminalAndSelect": "Vá ao Terminal Nook e selecione a opção",
   "accessTheOption": "Acesse a opção",
   "filterTheResultsFromTheShoppingBy": "Filtre os resultados do shopping por",
-  "songs": "Músicas"
+  "songs": "Músicas",
+  "copyMissingSongs": "Copiar Músicas restantes",
+  "copyCollectedSongs": "Copiar Músicas colecionadas"
 }

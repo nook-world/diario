@@ -5,6 +5,7 @@ import songs from "@nook-world/data/songs";
 import MuseumSearch from "../MuseumSearch";
 import CurrentDate from "../CurrentDate";
 import Percentage from "../Percentage";
+import CopyToClipboard from "../CopyToClipboard";
 
 import styles from "./Songs.module.css";
 
@@ -81,6 +82,14 @@ function Songs({ language }) {
             );
           })}
       </div>
+      <CopyToClipboard
+        list={songs}
+        selected={selectedSongs}
+        title={language.copyToClipboard}
+        emoji="🎵"
+        buttonLabelCaught={language.copyCollectedSongs}
+        buttonLabelMissing={language.copyMissingSongs}
+      />
     </>
   );
 }

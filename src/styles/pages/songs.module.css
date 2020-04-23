@@ -1,5 +1,6 @@
-.layout {
+.layout.layout {
   background: #5bd1f5;
+  padding-bottom: 10em;
 }
 .layout:before {
   content: "";
@@ -9,7 +10,8 @@
   bottom: 0;
   left: 0;
   background: url("/assets/waves.svg");
-  background-size: 100% 33%;
+  background-size: 100% 20%;
   background-repeat: no-repeat;
   background-position: bottom;
+  pointer-events: none;
 }
