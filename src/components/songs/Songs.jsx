@@ -87,8 +87,8 @@ function Songs({ language }) {
         selected={selectedSongs}
         title={language.copyToClipboard}
         emoji="🎵"
-        buttonLabelCaught={language.copyCollectedSongs}
-        buttonLabelMissing={language.copyMissingSongs}
+        collectedLabel={language.copyCollectedSongs}
+        missingLabel={language.copyMissingSongs}
       />
     </>
   );
