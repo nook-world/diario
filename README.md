@@ -14,6 +14,11 @@ $ npm run build
 $ npm start
 ```
 
+## Run DEV (edit, test localy, ...)
+```
+$ npm run dev
+```
+
 ## Local test Next Export
 
 To test local export export you can run the following commands:
