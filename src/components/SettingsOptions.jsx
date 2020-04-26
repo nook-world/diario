@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import Link from "next/link"
+import Link from "next/link";
 
-import ArrowRight from './icons/ArrowRight';
+import ArrowRight from "./icons/ArrowRight";
 import DisplayOptions from "./DisplayOptions";
 
 import styles from "../styles/components/SettingsOptions.module.css";
-
 
 function SettingsOptions({ language, setSelectedLanguage }) {
   const [status, setStatus] = useState("");
@@ -231,7 +230,7 @@ function SettingsOptions({ language, setSelectedLanguage }) {
       </p>
       <p>
         {language.twitterBody}{" "}
-        <a href="https://twitter.com/NookWorldBR">@NookWorldBR</a>
+        <a href="https://twitter.com/NookWorldApp">@NookWorldApp</a>
       </p>
     </nav>
   );

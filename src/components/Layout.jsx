@@ -104,7 +104,7 @@ function Layout({ children, background }) {
           name="twitter:image"
           content="https://diario.nook.world/twitter.png"
         />
-        <meta name="twitter:creator" content="@NookWorldBR" />
+        <meta name="twitter:creator" content="@NookWorldApp" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Diário Nook World" />
         <meta
