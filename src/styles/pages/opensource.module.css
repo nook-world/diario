@@ -1,0 +1,25 @@
+.layout {
+  background: #f3f1e3
+    radial-gradient(88% 16% at 50% 0%, #d9cda7 71%, #f3f1e3 70%) no-repeat 50%
+    50% / 100% 100%;
+  background-size: 100% calc(env(safe-area-inset-top, 0) * 4 + 780px);
+  background-position: top;
+}
+
+.container {
+  width: 100%;
+  max-width: 58rem;
+  margin: 50px auto;
+}
+
+.news {
+  position: relative;
+  text-align: left;
+  padding: 1px 1em;
+  margin: 1em;
+}
+
+.signature {
+  text-align: right;
+  font-style: italic;
+}
