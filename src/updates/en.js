@@ -1,5 +1,11 @@
 export default [
   {
+    date: "2020-06-30",
+    title: "The Diary is now open-source",
+    message:
+      "The Diary from Nook World is now open-source. You can read the announcement (in Portuguese only) [clicking here](/open-source).",
+  },
+  {
     date: "2020-04-21",
     title: "K.K. Slider songlist",
     message:

@@ -1,5 +1,11 @@
 export default [
   {
+    date: "2020-06-30",
+    title: "O Diário agora é open-source",
+    message:
+      "O Díario Nook World agora é open-source. Você pode ler o comunicado completo [clicando aqui](/open-source).",
+  },
+  {
     date: "2020-04-21",
     title: "Lista de Músicas do K.K. Slider",
     message:
