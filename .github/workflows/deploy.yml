@@ -37,3 +37,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
           cname: diario.nook.world
+          user_name: 'Isabelle [bot]'
+          user_email: 'isabellenw@filipekiss.com.br'
